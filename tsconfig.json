@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@Controllers/*": ["src/App/controllers/*"],
+      "@Database/*": ["src/Config/database/*"],
+      "@Decorators/*": ["src/App/common/decorators/*"],
+      "@Errors/*": ["src/App/common/errors/*"],
+      "@Helpers/*": ["src/App/common/helpers/*"],
+      "@Log/*": ["src/Config/log/*"],
+      "@Middlewares/*": ["src/App/common/middlewares/*"],
+      "@Routes/*": ["src/Config/routes/*"],
+      "@Services/*": ["src/App/services/*"],
+      "@Validators/*": ["src/App/common/validators/*"],
+    }
+  },
+  "include": ["src/**/*.ts", "../../types/*.d.ts"]
+}

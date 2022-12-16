@@ -1,0 +1,108 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    matizeId    String    @id @default(uuid()) @map("id_user")
+    document    String    @unique @map("document_user") @db.Char(14)
+    firstName   String    @map("first_name_user") @db.VarChar(256)
+    lastName    String    @map("last_name_user") @db.VarChar(256)
+    fullName    String    @map("full_name_user") @db.VarChar(256)
+    email       String    @unique @map("email_user") @db.VarChar(256)
+    phoneNumber String    @map("phone_number_user") @db.Char(17)
+    birthDate   DateTime  @map("birthdate_user") @db.Date
+    password    String    @map("password_user") @db.VarChar(256)
+    createdAt   DateTime  @default(now()) @map("insertdate_user")
+    updatedAt   DateTime  @default(now()) @updatedAt @map("updatedate_user")
+    deletedAt   DateTime? @map("deleted_user")
+    isAdmin     String    @default("F") @map("is_admin_user") @db.Char(1)
+    addresses   Address[]
+
+    @@map("users")
+}
+
+model Address {
+    matizeId       String    @id @default(uuid()) @map("id_address")
+    document       String    @map("document_address") @db.Char(9)
+    city           String    @map("city_address") @db.VarChar(256)
+    state          String    @map("state_address") @db.Char(2)
+    street         String    @map("street_address") @db.VarChar(256)
+    number         Int       @map("number_address") @db.Integer
+    district       String    @map("district_address") @db.VarChar(256)
+    additionalInfo String    @map("additional_info_address") @db.VarChar(256)
+    createdAt      DateTime  @default(now()) @map("insertdate_address")
+    updatedAt      DateTime  @default(now()) @updatedAt @map("updatedate_address")
+    deletedAt      DateTime? @map("deleted_address")
+    userMatizeId   String    @map("fk_id_user_address")
+    user           User      @relation(fields: [userMatizeId], references: [matizeId], onDelete: NoAction, onUpdate: NoAction)
+
+    @@map("addresses")
+}
+
+model Product {
+    matizeId     String    @id @default(uuid()) @map("id_product")
+    name         String    @map("name_product") @db.VarChar(256)
+    internalName String?   @unique @map("internalname_product") @db.VarChar(256)
+    description  String?   @map("desc_product") @db.VarChar(256)
+    typeName     String    @map("type_product") @db.VarChar(25)
+    sizeName     String?   @map("size_product") @db.VarChar(25)
+    price        Decimal   @map("price_product") @db.Decimal(10, 2)
+    quantity     Int       @default(1) @map("quantity_product") @db.Integer
+    createdAt    DateTime  @default(now()) @map("insertdate_product")
+    updatedAt    DateTime  @default(now()) @updatedAt @map("updatedate_product")
+    deletedAt    DateTime? @map("deleted_product")
+
+    images ProductImage[]
+    size   ProductSize?   @relation(fields: [sizeName], references: [internalName])
+    type   ProductType?   @relation(fields: [typeName], references: [internalName])
+
+    @@map("products")
+}
+
+model ProductType {
+    internalName String @unique @map("internalname_type") @db.VarChar(25)
+    friendlyName String @unique @map("friendly_name_type") @db.Char(25)
+
+    product Product[]
+
+    @@map("product_types")
+}
+
+model ProductSize {
+    internalName String @unique @map("internalname_size") @db.VarChar(25)
+    friendlyName String @unique @map("friendly_name_size") @db.VarChar(25)
+
+    product Product[]
+
+    @@map("product_sizes")
+}
+
+model ProductImage {
+    matizeId        String @id @default(uuid()) @map("id_image")
+    fileMatizeId    String @unique @map("fk_id_file_image")
+    productMatizeId String @unique @map("fk_id_product_image")
+
+    file    File    @relation(fields: [fileMatizeId], references: [matizeId], onDelete: Cascade, onUpdate: Cascade)
+    product Product @relation(fields: [productMatizeId], references: [matizeId], onDelete: Cascade, onUpdate: Cascade)
+
+    @@map("product_images")
+}
+
+model File {
+    matizeId  String   @id @default(uuid()) @map("id_file")
+    type      String   @map("type_file") @db.VarChar(25)
+    mimeType  String   @map("mime_type_file") @db.VarChar(25)
+    name      String   @unique @map("name_file") @db.VarChar(256)
+    createdAt DateTime @default(now()) @map("insertdate_file")
+    updatedAt DateTime @default(now()) @updatedAt @map("updatedate_file")
+
+    productImage ProductImage?
+
+    @@map("files")
+}

@@ -1,0 +1,316 @@
+[
+  {
+    "_id": "deddeca8-e3c9-49b8-9843-2a3ebec69d6b",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f77505b4-8b13-49cd-83bb-66dc3ae7b29c",
+    "name": "login",
+    "url": "{{HOST}}/auth/login",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-09-04T13:55:59.359Z",
+    "modified": "2022-09-05T11:40:28.856Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "basic",
+      "basic": {
+        "username": "{{email}}",
+        "password": "{{password}}"
+      }
+    },
+    "tests": []
+  },
+  {
+    "_id": "86f9ad2e-d8d1-4eea-ba9d-995107974872",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+    "name": "create",
+    "url": "{{HOST}}/users",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-09-04T13:58:01.240Z",
+    "modified": "2022-10-02T10:44:48.536Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n        \"document\": \"12700136616\",\n        \"firstName\": \"Marina\",\n        \"lastName\": \"Silva Dias\",\n        \"email\": \"maarinasd@gmail.com\",\n        \"phoneNumber\": \"+5531971830923\",\n        \"password\": \"minhaSenha123\",\n        \"birthDate\": \"1997-02-20\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "95fb3617-8d47-44c2-a661-dd045814dfca",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+    "name": "update",
+    "url": "{{HOST}}/users",
+    "method": "PATCH",
+    "sortNum": 40000,
+    "created": "2022-09-04T13:59:17.055Z",
+    "modified": "2022-09-21T23:35:41.756Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"password\": \"minhaSenha123\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7740f5be-3574-4501-a98d-cfbafbd037c6",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+    "name": "create",
+    "url": "{{HOST}}/addresses",
+    "method": "POST",
+    "sortNum": 50000,
+    "created": "2022-09-04T14:02:14.251Z",
+    "modified": "2022-09-04T14:06:28.738Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"document\": \"31365770\",\n    \"city\": \"Belo Horizonte\",\n    \"state\": \"MG\",\n    \"street\": \"Av Antonio Francisco Lisboa\",\n    \"number\": 2277,\n    \"district\": \"Bandeirantes\",\n    \"additionalInfo\": \"Casa 1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "727b9c96-2ed5-4dd0-99d1-24dd1332f55f",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+    "name": "findAll",
+    "url": "{{HOST}}/addresses",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2022-09-04T14:02:36.792Z",
+    "modified": "2022-09-04T14:51:29.482Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "69ef6490-e555-4b89-ac7f-a9c626d6888b",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+    "name": "findOne",
+    "url": "{{HOST}}/addresses/:id",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2022-09-04T14:02:50.537Z",
+    "modified": "2022-09-04T14:02:59.091Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "424a5d6a-40f2-4802-9116-897394e1b342",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+    "name": "update",
+    "url": "{{HOST}}/addresses/ba6c5d93-10f4-456e-9b88-bf5a35727c37",
+    "method": "PATCH",
+    "sortNum": 80000,
+    "created": "2022-09-04T14:03:48.028Z",
+    "modified": "2022-10-02T10:06:28.117Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"number\": 2277,\n    \"additionalInfo\": \"Casa 1\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "cfbe5a3e-c537-4f38-b315-a283e29fac6c",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+    "name": "findUsers",
+    "url": "{{HOST}}/admin/users",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2022-09-04T14:04:17.941Z",
+    "modified": "2022-09-04T14:41:21.212Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0c889396-7a03-4f7f-a568-22a0e82231b7",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+    "name": "deleteUser",
+    "url": "{{HOST}}/admin/users/:id",
+    "method": "DELETE",
+    "sortNum": 100000,
+    "created": "2022-09-04T14:04:34.405Z",
+    "modified": "2022-09-04T14:04:43.406Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b8489d86-fe1e-463c-8d98-2cd0ecd3cbc5",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+    "name": "profile",
+    "url": "{{HOST}}/user/profile",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2022-09-04T14:54:08.920Z",
+    "modified": "2022-09-04T14:57:01.439Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fc11aa0a-6ee1-4006-b041-a12600952dea",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+    "name": "findOne",
+    "url": "{{HOST}}/users/werneck.mateus@gmail.com",
+    "method": "GET",
+    "sortNum": 120000,
+    "created": "2022-09-21T23:10:54.055Z",
+    "modified": "2022-09-21T23:35:57.670Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bd7e964a-2e3a-456a-86f1-a1f49c7d15fd",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+    "name": "create",
+    "url": "{{HOST}}/products",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2022-09-29T20:17:28.210Z",
+    "modified": "2022-10-12T13:50:05.835Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"Camiseta Jeans\",\n    \"internalName\": \"jeans_shirt_3\",\n    \"description\": \"Camiseta Jeans Preta\",\n    \"typeName\": \"shirt\",\n    \"sizeName\": \"G\",\n    \"price\": 4000,\n    \"quantity\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "409efa6c-13ca-4f93-a777-ea90115e2412",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+    "name": "findAll",
+    "url": "{{HOST}}/products",
+    "method": "GET",
+    "sortNum": 140000,
+    "created": "2022-09-29T20:17:53.152Z",
+    "modified": "2022-10-12T13:49:46.340Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9dfcbe4c-9a86-412b-97e8-fe89e3ca5470",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+    "name": "findOne",
+    "url": "{{HOST}}/products/6e981789-8ec1-4f7d-a7fd-ee7d050a1963",
+    "method": "GET",
+    "sortNum": 150000,
+    "created": "2022-09-29T20:18:11.792Z",
+    "modified": "2022-09-29T23:31:38.974Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "98bd182b-3d7f-49b5-a7a5-e5729283c285",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+    "name": "update",
+    "url": "{{HOST}}/products/b06cda65-252a-41e3-9863-7c2d3112a30e",
+    "method": "PATCH",
+    "sortNum": 160000,
+    "created": "2022-09-29T20:18:37.487Z",
+    "modified": "2022-10-12T13:22:28.814Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"internalName\": \"jeans_shirt_1\",\n    \"price\": 3499\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "f2a1d587-749a-4072-adb8-efcaab785749",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+    "name": "remove",
+    "url": "{{HOST}}/products/10cf6287-633a-4ff0-b79c-64699790a55e",
+    "method": "DELETE",
+    "sortNum": 170000,
+    "created": "2022-09-29T20:23:08.535Z",
+    "modified": "2022-10-12T13:51:39.967Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "1b3f6044-3131-4c9b-956a-1a0effd87737",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+    "name": "remove",
+    "url": "{{HOST}}/addresses/ba6c5d93-10f4-456e-9b88-bf5a35727c37",
+    "method": "DELETE",
+    "sortNum": 90000,
+    "created": "2022-10-02T10:06:35.249Z",
+    "modified": "2022-10-02T10:06:55.315Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "ee3a9921-798d-41dc-b2e9-a8fb23d53b3d",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "087e0b20-5bff-4d10-9785-5f74caa453ee",
+    "name": "create",
+    "url": "{{HOST}}/files/productImage/b06cda65-252a-41e3-9863-7c2d3112a30e",
+    "method": "POST",
+    "sortNum": 180000,
+    "created": "2022-10-02T15:18:34.397Z",
+    "modified": "2022-10-02T15:21:29.300Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [],
+      "files": [
+        {
+          "name": "file",
+          "value": "\\\\wsl.localhost\\Ubuntu-20.04\\home\\mateuswerneck\\Documents\\images.png"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "ceaefd13-79e7-462b-8230-f8fd23a4a357",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+    "name": "findAll",
+    "url": "{{HOST}}/users/",
+    "method": "GET",
+    "sortNum": 130000,
+    "created": "2022-12-16T22:04:47.214Z",
+    "modified": "2022-12-16T22:04:57.247Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

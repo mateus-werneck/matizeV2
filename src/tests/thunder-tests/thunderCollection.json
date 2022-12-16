@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "colName": "API Matize",
+    "created": "2022-09-04T13:54:18.510Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "f77505b4-8b13-49cd-83bb-66dc3ae7b29c",
+        "name": "Authentication",
+        "containerId": "",
+        "created": "2022-09-04T13:55:39.967Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+        "name": "Users",
+        "containerId": "",
+        "created": "2022-09-04T13:55:46.637Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+        "name": "Addresses",
+        "containerId": "",
+        "created": "2022-09-04T13:55:52.446Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+        "name": "Admin",
+        "containerId": "",
+        "created": "2022-09-04T14:04:12.781Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+        "name": "Products",
+        "containerId": "",
+        "created": "2022-09-29T20:17:21.130Z",
+        "sortNum": 50000
+      },
+      {
+        "_id": "087e0b20-5bff-4d10-9785-5f74caa453ee",
+        "name": "Files",
+        "containerId": "",
+        "created": "2022-10-02T15:18:29.650Z",
+        "sortNum": 60000
+      }
+    ],
+    "settings": {
+      "headers": [],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXRpemVJZCI6ImZlY2YwMWRlLTQ1MzItNDNiNi05NzJlLWExOGMyODY0YzA4YSIsImRvY3VtZW50IjoiMTM3Mzk5NDU2ODAgICAiLCJmaXJzdE5hbWUiOiJNYXRldXMiLCJsYXN0TmFtZSI6IlBlcmVpcmEgV2VybmVjayBTaWx2YSIsImZ1bGxOYW1lIjoiTWF0ZXVzIFBlcmVpcmEgV2VybmVjayBTaWx2YSIsImVtYWlsIjoid2VybmVjay5tYXRldXNAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIrNTUzMTk4NDU0OTQ3NCAgICIsImJpcnRoRGF0ZSI6IjE5OTgtMDctMTlUMDA6MDA6MDAuMDAwWiIsInBhc3N3b3JkIjoiJDJiJDEwJEVjdnpEWExNRjZVSnIzS3FGcHV4a2V0VFRua1NMTjNKaG5FcjZHVEJWcmVHVzM5UlJrVUhHIiwiY3JlYXRlZEF0IjoiMjAyMi0wOS0yMVQyMzoyODo1My45NTJaIiwidXBkYXRlZEF0IjoiMjAyMi0wOS0yMVQyMzoyODo1My45NTJaIiwiZGVsZXRlZEF0IjpudWxsLCJpc0FkbWluIjoiVCIsImlhdCI6MTY3MTA1OTIzMiwiZXhwIjoxNzAyNTk1MjMyfQ.9Wr5YwO0WIBvfSf3MbC1bpbxQnYcXx4XqgEzG9kMsrk"
+      },
+      "tests": []
+    }
+  }
+]
