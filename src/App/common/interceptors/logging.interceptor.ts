@@ -1,5 +1,5 @@
 import { hasText, isValidObject } from '@Helpers/Object';
-import { MatizeLogger } from '@Log/logger.service';
+import { MatizeLogger } from '@Log/logger';
 import {
   CallHandler,
   ExecutionContext,

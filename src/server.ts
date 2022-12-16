@@ -1,5 +1,5 @@
-import { MatizeLogger } from '@Log/logger.service';
-import { LoggingInterceptor } from '@Middlewares/interceptors/logging.interceptor';
+import { LoggingInterceptor } from '@Interceptors/logging.interceptor';
+import { MatizeLogger } from '@Log/logger';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';

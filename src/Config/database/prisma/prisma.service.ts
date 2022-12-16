@@ -1,4 +1,4 @@
-import { DatabaseLogger } from '@Log/db.logger.service';
+import { DatabaseLogger } from '@Log/db.logger';
 import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
 import { Prisma, PrismaClient } from '@prisma/client';
 
