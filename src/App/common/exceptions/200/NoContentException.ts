@@ -1,5 +1,6 @@
 import { HttpException } from '@nestjs/common';
-export class NoContent extends HttpException {
+
+export class NoContentExceptions extends HttpException {
   constructor() {
     super('No Content', 204);
   }

@@ -1,4 +1,4 @@
-import { UserRepository } from '@Entities/user-repository';
+import { UserRepository } from '@Repositories/user/user.repository';
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 
