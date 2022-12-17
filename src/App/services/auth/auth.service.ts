@@ -54,9 +54,12 @@ export class AuthService extends Service {
       access_token: this.jwtService.sign(
         { ...user.toView() },
         {
-          secret: decodeJwtSecret(jwtConstants.secret)
+          secret: decodeJwtSecret(jwtConstants.secret),
+          expiresIn: process.env.EXPIRES_IN
         }
-      )
+      ),
+      token_type: 'Bearer',
+      expires_in: 3600
     };
   }
 }
