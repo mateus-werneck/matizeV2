@@ -1,4 +1,4 @@
-export interface UserProps {
+export interface IUser {
   matizeId: string;
   document: string;
   firstName: string;

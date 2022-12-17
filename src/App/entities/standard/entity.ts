@@ -1,8 +1,8 @@
-import { EntityProps } from '@Interfaces/standard/entity';
+import { IEntity } from '@Interfaces/standard/entity';
 import { View } from '@Interfaces/standard/view';
 import { ViewMapper } from '@Views/standard/view';
 
-export abstract class Entity implements EntityProps {
+export abstract class Entity implements IEntity {
   props: object;
 
   abstract getViewClass(): ViewMapper;

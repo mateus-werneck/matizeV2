@@ -5,5 +5,5 @@ dist
 jest.config.ts
 File.ts
 Document.ts
-logger.service.ts
-db.logger.service.ts
+logger.ts
+db.logger.ts

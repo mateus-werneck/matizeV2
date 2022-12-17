@@ -1,9 +1,9 @@
 import { Entity } from '@Entities/standard/entity';
-import { UserProps } from '@Interfaces/user/user';
+import { IUser } from '@Interfaces/user/user';
 import { UserViewMapper } from '@Views/user/user.view';
 
 export class UserEntity extends Entity {
-  props: UserProps;
+  props: IUser;
 
   getViewClass(): UserViewMapper {
     return new UserViewMapper();
