@@ -1,4 +1,4 @@
-import { Entity } from "@Entities/standard/entity";
+import { Entity } from '@Entities/standard/entity';
 
 export function treatOne(object: Entity) {
   return object.toView();

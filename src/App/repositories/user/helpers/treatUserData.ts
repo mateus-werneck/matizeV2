@@ -12,7 +12,7 @@ export function treatUserUpdateData(userData: UpdateUserDto): object {
   if (hasText(userData.birthDate) && userData.birthDate) {
     updateData['birthDate'] = treatStringToDate(userData.birthDate);
   }
-  
+
   treatObject(updateData);
   return updateData;
 }

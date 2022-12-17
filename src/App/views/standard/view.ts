@@ -7,18 +7,18 @@ export abstract class ViewMapper {
   abstract getPropsToView(): string[];
 
   constructor() {
-    this.props = {} as View
+    this.props = {} as View;
   }
 
   setData(entity: object) {
-    const props = this.getPropsToView()
+    const props = this.getPropsToView();
     for (const prop of props) {
-      this.props[prop] = entity[prop]
+      this.props[prop] = entity[prop];
     }
   }
 
   getData(): View {
-    return this.props
+    return this.props;
   }
 
   hasMatizeId(): boolean {
@@ -26,6 +26,6 @@ export abstract class ViewMapper {
   }
 
   hasData(): boolean {
-    return Object.keys(this.props).length > 0
+    return Object.keys(this.props).length > 0;
   }
 }

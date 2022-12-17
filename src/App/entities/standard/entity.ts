@@ -3,7 +3,7 @@ import { View } from '@Interfaces/standard/view';
 import { ViewMapper } from '@Views/standard/view';
 
 export abstract class Entity implements EntityProps {
-    props: object;
+  props: object;
 
   abstract getViewClass(): ViewMapper;
 
@@ -13,7 +13,7 @@ export abstract class Entity implements EntityProps {
 
   toView(): View {
     const viewClass = this.getViewClass();
-    viewClass.setData(this.props)
-    return viewClass.getData()
+    viewClass.setData(this.props);
+    return viewClass.getData();
   }
 }

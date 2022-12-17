@@ -8,6 +8,6 @@ import { Module } from '@nestjs/common';
 
 @Module({
   imports: [ServiceModule],
-  controllers:[UserController],
+  controllers: [UserController]
 })
 export class RouteModule {}

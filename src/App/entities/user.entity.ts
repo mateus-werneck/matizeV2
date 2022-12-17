@@ -3,9 +3,9 @@ import { UserProps } from '@Interfaces/user/user';
 import { UserViewMapper } from '@Views/user/user.view';
 
 export class UserEntity extends Entity {
-    props: UserProps;
+  props: UserProps;
 
-    getViewClass(): UserViewMapper {
-      return new UserViewMapper()
-    }
+  getViewClass(): UserViewMapper {
+    return new UserViewMapper();
+  }
 }

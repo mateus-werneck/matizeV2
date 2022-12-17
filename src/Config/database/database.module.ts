@@ -4,7 +4,8 @@ import { UserRepository } from '@Repositories/user/user.repository';
 import { Module } from '@nestjs/common';
 
 @Module({
-  providers: [PrismaService,
+  providers: [
+    PrismaService,
     {
       provide: UserRepository,
       useClass: PrismaUserRepository

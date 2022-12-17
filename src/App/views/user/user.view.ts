@@ -1,10 +1,9 @@
 import { UserView } from '@Interfaces/user/user.view';
 import { ViewMapper } from '@Views/standard/view';
 
-
 export class UserViewMapper extends ViewMapper {
-  props: UserView
-  
+  props: UserView;
+
   getPropsToView(): string[] {
     return [
       'matizeId',
@@ -16,7 +15,7 @@ export class UserViewMapper extends ViewMapper {
       'phoneNumber',
       'birthDate',
       'createdAt',
-      'updatedAt',
-    ]
+      'updatedAt'
+    ];
   }
 }

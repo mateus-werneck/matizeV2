@@ -6,9 +6,6 @@ import { ConfigModule } from '@nestjs/config';
 const envFilePath: string = getEnvPath(`${__dirname}/Config/envs`);
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ envFilePath, isGlobal: true }),
-    RouteModule
-  ]
+  imports: [ConfigModule.forRoot({ envFilePath, isGlobal: true }), RouteModule]
 })
 export class AppModule {}
