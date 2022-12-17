@@ -1,7 +1,6 @@
-import { ViewProps } from '@Interfaces/standard/view';
+import { View } from '@Interfaces/standard/view';
 
-export interface UserViewProps extends ViewProps {
-  matizeId: string;
+export interface UserView extends View {
   document: string;
   firstName: string;
   lastName: string;

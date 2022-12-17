@@ -1,33 +1,31 @@
 import { hasText } from '@Helpers/Object';
-import { ViewProps } from '@Interfaces/standard/view';
+import { View } from '@Interfaces/standard/view';
 
-export class View {
-  props: ViewProps;
+export abstract class ViewMapper {
+  props: View;
 
-  constructor(entity: object | undefined = undefined) {
-    if(entity) {
-      this.setData(entity)
+  abstract getPropsToView(): string[];
+
+  constructor() {
+    this.props = {} as View
+  }
+
+  setData(entity: object) {
+    const props = this.getPropsToView()
+    for (const prop of props) {
+      this.props[prop] = entity[prop]
     }
   }
 
-  public set matizeId(matizeId: string) {
-    this.props.matizeId = matizeId
-  }
-
-  public get matizeId(): string {
-    return this.props.matizeId;
-  }
-
-  setData(entity: object): void {
-    this.props = entity as ViewProps
-  }
-
-  getData(): ViewProps {
+  getData(): View {
     return this.props
   }
-  
+
   hasMatizeId(): boolean {
-    return hasText(this.props.matizeId);
+    return hasText(this.props['matizeId']);
   }
 
+  hasData(): boolean {
+    return Object.keys(this.props).length > 0
+  }
 }

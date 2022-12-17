@@ -1,6 +1,5 @@
 import { EntityProps } from '@Interfaces/standard/entity';
-import { ViewProps } from '@Interfaces/standard/view';
-import { View } from '@Views/standard/view';
+import { ViewMapper } from '@Views/standard/view';
 
 export class Entity implements EntityProps {
     props: object;
@@ -9,13 +8,13 @@ export class Entity implements EntityProps {
     this.props = props;
   }
 
-  getViewClass(): View {
+  getViewClass(): ViewMapper {
     throw Error('Function not implemented')
   }
 
-  toView(): ViewProps {
+  toView(): object {
     const viewClass = this.getViewClass();
     viewClass.setData(this.props)
-    return viewClass.getData();
+    return viewClass.getData()
   }
 }

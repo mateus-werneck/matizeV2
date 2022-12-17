@@ -1,5 +1,5 @@
 import { Public } from '@Decorators/public.decorator';
-import { UserViewProps } from '@Interfaces/user/user.view';
+import { UserView } from '@Interfaces/user/user.view';
 import {
   Controller,
   Get
@@ -12,7 +12,7 @@ export class UserController {
 
   @Public()
   @Get()
-  async findAll(): Promise<UserViewProps[]> {
+  async findAll(): Promise<UserView[]> {
     return this.userService.findAll()
     
   }

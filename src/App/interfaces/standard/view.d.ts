@@ -1,3 +1,3 @@
-export interface ViewProps {
+export interface View {
   matizeId: string;
 }

@@ -1,5 +1,5 @@
 import { Entity } from '@Entities/standard/entity';
-import { treatMany, treatOne } from '@Helpers/View';
+import { treatMany, treatOne } from '@Helpers/ViewTreat';
 
 export class Service {
   treatItem(item: Entity) {
