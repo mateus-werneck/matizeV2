@@ -1,11 +1,14 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { CreateUserDto } from '@Dtos/user/create-user.dto';
+import { UpdateUserDto } from '@Dtos/user/update-user.dto';
 import { UserEntity } from '@Entities/user.entity';
 import { treatStringToDate } from '@Helpers/Date';
+import { isValidObject } from '@Helpers/Object';
 import { treatPassword } from '@Helpers/Password';
 import { UserRepository } from '@Interfaces/user/user.repository';
 import { HttpException, Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
+import { treatUserUpdateData } from './helpers/treatUserData';
 
 @Injectable()
 export class PrismaUserRepository implements UserRepository {
@@ -34,9 +37,10 @@ export class PrismaUserRepository implements UserRepository {
   }
 
   async findAll(): Promise<UserEntity[]> {
-    const users = await this.prisma.user.findMany({ include: { addresses: true } });
-    return users.map((user) => new UserEntity(user))
-
+    const users = await this.prisma.user.findMany({
+      include: { addresses: true }
+    });
+    return users.map((user) => new UserEntity(user));
   }
 
   async create(user: CreateUserDto): Promise<void> {
@@ -49,21 +53,22 @@ export class PrismaUserRepository implements UserRepository {
     await this.prisma.user.create({ data });
   }
 
-  // async update(params: {
-  //   matizeId: string;
-  //   data: UpdateUserDto;
-  // }): Promise<object> {
-  //   const { data, matizeId } = params;
-  //   const userData = treatUserUpdateData(data);
-  //   if (!isValidObject(userData)) {
-  //     return { type: false };
-  //   }
-  //   const updatedUser = await this.prisma.user.update({
-  //     where: { matizeId },
-  //     data: userData
-  //   });
-  //   return { type: isValidObject(updatedUser) };
-  // }
+  async update(params: {
+    matizeId: string;
+    data: UpdateUserDto;
+  }): Promise<void> {
+    const { data, matizeId } = params;
+    const userData = treatUserUpdateData(data);
+
+    if (!isValidObject(userData)) {
+      return;
+    }
+
+    await this.prisma.user.update({
+      where: { matizeId },
+      data: userData
+    });
+  }
 
   async remove(matizeId: string): Promise<void> {
     await this.prisma.user.delete({ where: { matizeId } });

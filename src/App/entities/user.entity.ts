@@ -6,4 +6,8 @@ export class UserEntity {
   constructor(props: UserProps) {
     this.props = props;
   }
+
+  toPrisma(): any {
+    
+  }
 }
