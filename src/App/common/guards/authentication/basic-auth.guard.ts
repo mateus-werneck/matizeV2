@@ -1,4 +1,4 @@
-import { BasicStrategy } from '@Middlewares/authentication/strategies/basic.strategy';
+import { BasicStrategy } from '@Services/auth/strategies/basic.strategy';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 
 @Injectable()

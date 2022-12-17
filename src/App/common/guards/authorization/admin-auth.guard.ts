@@ -1,5 +1,5 @@
 import { isValidObject } from '@Helpers/Object';
-import { AuthService } from '@Middlewares/authentication/service/auth.service';
+import { AuthService } from '@Services/auth/auth.service';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 
 @Injectable()
