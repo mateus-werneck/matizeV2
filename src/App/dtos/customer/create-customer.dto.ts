@@ -1,6 +1,7 @@
 import { isCpf } from '@Validators/Document';
 import {
   IsAlpha,
+  IsDateString,
   IsEmail,
   IsNotEmpty,
   IsPhoneNumber,
@@ -9,7 +10,7 @@ import {
   MinLength
 } from 'class-validator';
 
-export class CreateUserDto {
+export class CreateCustomerDto {
   @isCpf()
   @IsNotEmpty()
   document: string;
@@ -37,6 +38,10 @@ export class CreateUserDto {
   @MaxLength(20)
   @IsNotEmpty()
   phoneNumber: string;
+
+  @IsDateString()
+  @IsNotEmpty()
+  birthDate: string;
 
   @IsString()
   @IsNotEmpty()

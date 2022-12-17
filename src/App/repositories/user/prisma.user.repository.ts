@@ -1,10 +1,9 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { UserEntity } from '@Entities/user.entity';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
-import { treatStringToDate } from '@Helpers/Date';
 import { isValidObject } from '@Helpers/Object';
 import { treatPassword } from '@Helpers/Password';
-import { HttpException, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
 import { UpdateUserDto } from 'src/App/dtos/user/update-user.dto';
@@ -38,17 +37,13 @@ export class PrismaUserRepository implements UserRepository {
   }
 
   async findAll(): Promise<UserEntity[]> {
-    const users = await this.prisma.user.findMany({
-      include: { addresses: true }
-    });
+    const users = await this.prisma.user.findMany();
     return users.map((user) => new UserEntity(user));
   }
 
   async create(user: CreateUserDto): Promise<void> {
     const data = {
       ...user,
-      birthDate: treatStringToDate(user.birthDate),
-      fullName: `${user.firstName} ${user.lastName}`,
       password: treatPassword(user.password)
     } as User;
     await this.prisma.user.create({ data });

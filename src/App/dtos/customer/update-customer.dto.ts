@@ -1,4 +1,5 @@
 import {
+  IsDateString,
   IsNotEmpty,
   IsOptional,
   IsPhoneNumber,
@@ -7,12 +8,16 @@ import {
   MinLength
 } from 'class-validator';
 
-export class UpdateUserDto {
+export class UpdateCustomerDto {
   @IsPhoneNumber('BR')
   @MinLength(11)
   @MaxLength(20)
   @IsOptional()
   phoneNumber?: string;
+
+  @IsDateString()
+  @IsOptional()
+  birthDate?: string;
 
   @IsString()
   @IsNotEmpty()
