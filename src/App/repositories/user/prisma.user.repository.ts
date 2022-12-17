@@ -1,13 +1,13 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
-import { CreateUserDto } from '@Dtos/user/create-user.dto';
-import { UpdateUserDto } from '@Dtos/user/update-user.dto';
 import { UserEntity } from '@Entities/user.entity';
 import { treatStringToDate } from '@Helpers/Date';
 import { isValidObject } from '@Helpers/Object';
 import { treatPassword } from '@Helpers/Password';
-import { UserRepository } from '@Interfaces/user/user.repository';
 import { HttpException, Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
+import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
+import { UpdateUserDto } from 'src/App/dtos/user/update-user.dto';
+import { UserRepository } from 'src/App/interfaces/user/user.repository';
 import { treatUserUpdateData } from './helpers/treatUserData';
 
 @Injectable()
