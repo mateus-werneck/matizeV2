@@ -6,6 +6,10 @@ import { UserViewMapper } from '@Views/user/user.view';
 export class UserEntity extends Entity {
   props: IUser;
 
+  get email(): string {
+    return this.props.email
+  }
+
   get password(): string {
     return this.props.password;
   }
