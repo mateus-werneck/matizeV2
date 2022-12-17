@@ -1,4 +1,4 @@
-export interface ServiceInterface {
+export interface ServiceProps {
   create: (object) => Promise<object>;
   update: (object) => Promise<object>;
   delete?: () => Promise<object>;
