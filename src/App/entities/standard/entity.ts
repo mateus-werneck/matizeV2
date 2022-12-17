@@ -1,18 +1,17 @@
 import { EntityProps } from '@Interfaces/standard/entity';
+import { View } from '@Interfaces/standard/view';
 import { ViewMapper } from '@Views/standard/view';
 
-export class Entity implements EntityProps {
+export abstract class Entity implements EntityProps {
     props: object;
 
-  constructor(props: any) {
+  abstract getViewClass(): ViewMapper;
+
+  constructor(props: object) {
     this.props = props;
   }
 
-  getViewClass(): ViewMapper {
-    throw Error('Function not implemented')
-  }
-
-  toView(): object {
+  toView(): View {
     const viewClass = this.getViewClass();
     viewClass.setData(this.props)
     return viewClass.getData()

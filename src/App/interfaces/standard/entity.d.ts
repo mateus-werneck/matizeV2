@@ -1,7 +1,8 @@
-import { View } from "@Views/standard/view"
+import { ViewMapper } from "@Views/standard/view";
+import { View } from './view';
 
 export interface EntityProps {
     props: object
-    getViewClass: () => View
-    toView: () => ViewProps
+    getViewClass: () => ViewMapper
+    toView: () => View
 }
