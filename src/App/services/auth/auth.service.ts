@@ -25,27 +25,28 @@ export class AuthService extends Service {
     } catch (error) {
       throw new InvalidAuthException();
     }
-    if (!user || !hasValidPassword(password, user.password)) {
+
+    if (!hasValidPassword(password, user.password)) {
       throw new InvalidAuthException();
     }
+
     return user;
   }
 
   async validateAdmin(email: string): Promise<UserEntity> {
     let user;
+
     try {
       user = await this.userRepository.findByEmail(email);
     } catch (error) {
       throw new InvalidAuthException();
     }
-    const isAdmin = treatStringToBoolean(user.isAdmin);
-    if (!user) {
-      throw new InvalidAuthException();
+
+    if (user.isAdmin) {
+      return user;
     }
-    if (!isAdmin) {
-      throw new InvalidAuthException();
-    }
-    return user;
+
+    throw new InvalidAuthException();
   }
 
   async login(user: UserEntity) {

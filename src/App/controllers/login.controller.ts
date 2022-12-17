@@ -16,6 +16,6 @@ export class LoginController {
 
   @Get('user/profile')
   getProfile(@Request() req) {
-    return req.user.toView();
+    return req.user;
   }
 }

@@ -21,10 +21,6 @@ export abstract class ViewMapper {
     return this.props;
   }
 
-  hasMatizeId(): boolean {
-    return hasText(this.props['matizeId']);
-  }
-
   hasData(): boolean {
     return Object.keys(this.props).length > 0;
   }

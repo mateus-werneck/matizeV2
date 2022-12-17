@@ -21,6 +21,11 @@ export class UserService extends Service {
     return this.userRepository.findOne(matizeId);
   }
 
+  async findByEmail(email: string): Promise<UserView> {
+    const user = this.userRepository.findByEmail(email);
+    return this.treatItem(user) as UserView;
+  }
+
   async create(user: CreateUserDto): Promise<void> {
     return await this.userRepository.create(user);
   }
