@@ -1,22 +1,24 @@
 import { UserEntity } from '@Entities/user.entity';
-import { treatList } from '@Helpers/View';
 import { UserViewProps } from '@Interfaces/user/user.view';
+import { Service } from '@Services/standard/service';
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
 import { UpdateUserDto } from 'src/App/dtos/user/update-user.dto';
 import { UserRepository } from 'src/App/interfaces/user/user.repository';
 
 @Injectable()
-export class UserService {
-  constructor(private userRepository: UserRepository) {}
+export class UserService extends Service {
+  constructor(private userRepository: UserRepository) {
+    super();
+  }
 
   async findAll(): Promise<UserViewProps[]> {
     const users = await this.userRepository.findAll();
-    return treatList(users) as UserViewProps[]
+    return this.treatList(users) as UserViewProps[];
   }
 
   async findUserByMatizeId(matizeId: string): Promise<UserEntity | null> {
-    return this.userRepository.findOne(matizeId)
+    return this.userRepository.findOne(matizeId);
   }
 
   async create(user: CreateUserDto): Promise<void> {

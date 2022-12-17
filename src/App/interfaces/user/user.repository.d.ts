@@ -1,6 +1,7 @@
 import { UserEntity } from "@Entities/user.entity"
+import { Repository } from "@Interfaces/standard/repository"
 
-export interface UserRepository {
+export interface UserRepository extends Repository{
     findOne: (matizeId: string) => Promise<UserEntity | null> 
     findByEmail: (email: string) => Promise<UserEntity>
     findAll: () => Promise<UserEntity[]>
