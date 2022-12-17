@@ -1,11 +1,11 @@
 import { decodeJwtSecret, jwtConstants } from '@Helpers/Jwt';
 import { AuthService } from '@Services/auth/auth.service';
-import { BasicStrategy } from '@Services/auth/strategies/basic.strategy';
-import { JwtStrategy } from '@Services/auth/strategies/jwt.strategy';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { DatabaseModule } from '@Database/database.module';
+import { BasicStrategy } from './strategies/basic.strategy';
+import { JwtStrategy } from './strategies/jwt.strategy';
 
 @Module({
   imports: [

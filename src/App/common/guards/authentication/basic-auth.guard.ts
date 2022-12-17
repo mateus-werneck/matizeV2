@@ -1,5 +1,5 @@
-import { BasicStrategy } from '@Services/auth/strategies/basic.strategy';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { BasicStrategy } from 'src/Config/auth/strategies/basic.strategy';
 
 @Injectable()
 export class BasicAuthGuard implements CanActivate {
