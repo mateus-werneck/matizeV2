@@ -1,10 +1,10 @@
+import { CreateUserDto } from '@Dtos/user/create-user.dto';
+import { UpdateUserDto } from '@Dtos/user/update-user.dto';
 import { UserEntity } from '@Entities/user.entity';
 import { UserViewProps } from '@Interfaces/user/user.view';
+import { UserRepository } from '@Repositories/user/user.repository';
 import { Service } from '@Services/standard/service';
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
-import { UpdateUserDto } from 'src/App/dtos/user/update-user.dto';
-import { UserRepository } from 'src/App/interfaces/user/user.repository';
 
 @Injectable()
 export class UserService extends Service {

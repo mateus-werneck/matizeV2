@@ -18,8 +18,8 @@ export class View {
     return this.props.matizeId;
   }
 
-  setData(entity: object): void{
-    Object.assign(this.props, entity);
+  setData(entity: object): void {
+    this.props = entity as ViewProps
   }
 
   getData(): ViewProps {

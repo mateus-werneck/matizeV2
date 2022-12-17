@@ -7,8 +7,8 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
 import { UpdateUserDto } from 'src/App/dtos/user/update-user.dto';
-import { UserRepository } from 'src/App/interfaces/user/user.repository';
 import { treatUserUpdateData } from './helpers/treatUserData';
+import { UserRepository } from './user.repository';
 
 @Injectable()
 export class PrismaUserRepository implements UserRepository {
