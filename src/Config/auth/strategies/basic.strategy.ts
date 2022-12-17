@@ -2,8 +2,8 @@ import { base64decode } from '@Helpers/Hash';
 import { hasText } from '@Helpers/Object';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
+import { AuthService } from '@Services/auth/auth.service';
 import { Strategy } from 'passport-local';
-import { AuthService } from '../auth.service';
 
 @Injectable()
 export class BasicStrategy extends PassportStrategy(Strategy) {
