@@ -24,6 +24,7 @@
       "@Database/*": ["src/Config/database/*"],
       "@Decorators/*": ["src/App/common/decorators/*"],
       "@Dtos/*": ["src/App/common/dtos/*"],
+      "@Entities/*": ["src/App/entities/*"],
       "@Repositories/*": ["src/App/repositories/*"],
       "@Exceptions/*": ["src/App/common/exceptions/*"],
       "@Helpers/*": ["src/App/common/helpers/*"],
