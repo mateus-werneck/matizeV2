@@ -13,34 +13,49 @@ model User {
     document    String    @unique @map("document_user") @db.Char(14)
     firstName   String    @map("first_name_user") @db.VarChar(256)
     lastName    String    @map("last_name_user") @db.VarChar(256)
-    fullName    String    @map("full_name_user") @db.VarChar(256)
     email       String    @unique @map("email_user") @db.VarChar(256)
     phoneNumber String    @map("phone_number_user") @db.Char(17)
-    birthDate   DateTime  @map("birthdate_user") @db.Date
     password    String    @map("password_user") @db.VarChar(256)
     createdAt   DateTime  @default(now()) @map("insertdate_user")
     updatedAt   DateTime  @default(now()) @updatedAt @map("updatedate_user")
     deletedAt   DateTime? @map("deleted_user")
     isAdmin     String    @default("F") @map("is_admin_user") @db.Char(1)
-    addresses   Address[]
 
     @@map("users")
 }
 
+model Customer {
+    matizeId    String    @id @default(uuid()) @map("id_customer")
+    document    String    @unique @map("document_customer") @db.Char(14)
+    firstName   String    @map("first_name_customer") @db.VarChar(256)
+    lastName    String    @map("last_name_customer") @db.VarChar(256)
+    fullName    String    @map("full_name_customer") @db.VarChar(256)
+    email       String    @unique @map("email_customer") @db.VarChar(256)
+    phoneNumber String    @map("phone_number_customer") @db.Char(17)
+    birthDate   DateTime  @map("birthdate_customer") @db.Date
+    password    String    @map("password_customer") @db.VarChar(256)
+    createdAt   DateTime  @default(now()) @map("insertdate_customer")
+    updatedAt   DateTime  @default(now()) @updatedAt @map("updatedate_customer")
+    deletedAt   DateTime? @map("deleted_customer")
+    addresses   Address[]
+
+    @@map("customers")
+}
+
 model Address {
-    matizeId       String    @id @default(uuid()) @map("id_address")
-    document       String    @map("document_address") @db.Char(9)
-    city           String    @map("city_address") @db.VarChar(256)
-    state          String    @map("state_address") @db.Char(2)
-    street         String    @map("street_address") @db.VarChar(256)
-    number         Int       @map("number_address") @db.Integer
-    district       String    @map("district_address") @db.VarChar(256)
-    additionalInfo String    @map("additional_info_address") @db.VarChar(256)
-    createdAt      DateTime  @default(now()) @map("insertdate_address")
-    updatedAt      DateTime  @default(now()) @updatedAt @map("updatedate_address")
-    deletedAt      DateTime? @map("deleted_address")
-    userMatizeId   String    @map("fk_id_user_address")
-    user           User      @relation(fields: [userMatizeId], references: [matizeId], onDelete: NoAction, onUpdate: NoAction)
+    matizeId         String    @id @default(uuid()) @map("id_address")
+    document         String    @map("document_address") @db.Char(9)
+    city             String    @map("city_address") @db.VarChar(256)
+    state            String    @map("state_address") @db.Char(2)
+    street           String    @map("street_address") @db.VarChar(256)
+    number           Int       @map("number_address") @db.Integer
+    district         String    @map("district_address") @db.VarChar(256)
+    additionalInfo   String    @map("additional_info_address") @db.VarChar(256)
+    createdAt        DateTime  @default(now()) @map("insertdate_address")
+    updatedAt        DateTime  @default(now()) @updatedAt @map("updatedate_address")
+    deletedAt        DateTime? @map("deleted_address")
+    customerMatizeId String    @map("fk_id_customer_address")
+    customer         Customer  @relation(fields: [customerMatizeId], references: [matizeId], onDelete: NoAction, onUpdate: NoAction)
 
     @@map("addresses")
 }

@@ -7,13 +7,11 @@ export class UserViewMapper extends ViewMapper {
   getPropsToView(): string[] {
     return [
       'matizeId',
-      'document',
       'firstName',
       'lastName',
       'fullName',
       'email',
       'phoneNumber',
-      'birthDate',
       'createdAt',
       'updatedAt'
     ];
