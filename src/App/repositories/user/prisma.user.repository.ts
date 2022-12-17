@@ -1,5 +1,6 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { UserEntity } from '@Entities/user.entity';
+import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { treatStringToDate } from '@Helpers/Date';
 import { isValidObject } from '@Helpers/Object';
 import { treatPassword } from '@Helpers/Password';
@@ -31,7 +32,7 @@ export class PrismaUserRepository implements UserRepository {
       where: { email }
     });
     if (!user) {
-      throw new HttpException({ message: 'User not found' }, 204);
+      throw new UserNotFoundException();
     }
     return new UserEntity(user);
   }
