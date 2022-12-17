@@ -1,6 +1,8 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { Injectable } from '@nestjs/common';
+import { CreateCustomerDto } from '../../dtos/customer/create-customer.dto';
+import { UpdateCustomerDto } from '../../dtos/customer/update-customer.dto';
 import { CustomerRepository } from './customer.repository';
 
 @Injectable()
@@ -27,9 +29,27 @@ export class PrismaCustomerRepository implements CustomerRepository {
     return await this.prisma.customer.findFirstOrThrow({ where: { email } });
   }
 
-  async create(user: object): Promise<void> {}
+  async create(customer: CreateCustomerDto): Promise<void> {
+    await this.prisma.customer.create({
+      data: {
+        ...customer,
+        fullName: customer.getFullName(),
+        password: customer.getPassword(),
+        birthDate: customer.getBirthDate()
+      }
+    });
+  }
 
-  async update(params: { matizeId: string; data: object }): Promise<void> {}
+  async update(params: {
+    matizeId: string;
+    data: UpdateCustomerDto;
+  }): Promise<void> {
+    // const updateData = {
+    //   ...data,
+    //   password:
+    // }
+    // await this.prisma.customer.update({where: matizeId,})
+  }
 
   async remove(matizeId: string): Promise<void> {
     await this.prisma.customer.update({

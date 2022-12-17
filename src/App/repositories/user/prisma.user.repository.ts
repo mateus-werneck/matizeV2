@@ -1,8 +1,6 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { UserEntity } from '@Entities/user.entity';
-import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { isValidObject } from '@Helpers/Object';
-import { treatPassword } from '@Helpers/Password';
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
@@ -27,12 +25,9 @@ export class PrismaUserRepository implements UserRepository {
   }
 
   async findByEmail(email: string): Promise<UserEntity> {
-    const user = await this.prisma.user.findUnique({
+    const user = await this.prisma.user.findFirstOrThrow({
       where: { email }
     });
-    if (!user) {
-      throw new UserNotFoundException();
-    }
     return new UserEntity(user);
   }
 
@@ -44,7 +39,7 @@ export class PrismaUserRepository implements UserRepository {
   async create(user: CreateUserDto): Promise<void> {
     const data = {
       ...user,
-      password: treatPassword(user.password)
+      password: user.getPassword()
     } as User;
     await this.prisma.user.create({ data });
   }

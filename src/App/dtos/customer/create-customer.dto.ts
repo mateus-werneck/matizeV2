@@ -1,3 +1,5 @@
+import { treatStringToDate } from '@Helpers/Date';
+import { treatPassword } from '@Helpers/Password';
 import { isCpf } from '@Validators/Document';
 import {
   IsAlpha,
@@ -9,6 +11,7 @@ import {
   MaxLength,
   MinLength
 } from 'class-validator';
+
 
 export class CreateCustomerDto {
   @isCpf()
@@ -48,4 +51,16 @@ export class CreateCustomerDto {
   @MinLength(8)
   @MaxLength(256)
   password: string;
+
+  getFullName(): string {
+    return `${this.firstName} ${this.lastName}`
+  }
+
+  getPassword(): string {
+    return treatPassword(this.password)
+  }
+
+  getBirthDate(): Date {
+    return treatStringToDate(this.birthDate)
+  }
 }

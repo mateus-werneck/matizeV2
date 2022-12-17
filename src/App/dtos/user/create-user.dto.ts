@@ -1,3 +1,4 @@
+import { treatPassword } from '@Helpers/Password';
 import { isCpf } from '@Validators/Document';
 import {
   IsAlpha,
@@ -43,4 +44,8 @@ export class CreateUserDto {
   @MinLength(8)
   @MaxLength(256)
   password: string;
+
+  getPassword(): string {
+    return treatPassword(this.password)
+  }
 }

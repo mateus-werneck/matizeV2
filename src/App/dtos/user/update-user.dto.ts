@@ -1,3 +1,4 @@
+import { treatPassword } from '@Helpers/Password';
 import {
   IsNotEmpty,
   IsOptional,
@@ -19,4 +20,8 @@ export class UpdateUserDto {
   @MinLength(8)
   @MaxLength(256)
   password?: string;
+
+  getPassword(): string {
+    return treatPassword(this.password)
+  }
 }
