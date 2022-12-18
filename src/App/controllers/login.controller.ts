@@ -1,7 +1,7 @@
 import { Public } from '@Decorators/public.decorator';
 import { BasicAuthGuard } from '@Guards/authentication/basic-auth.guard';
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 import { AuthService } from '@Services/auth/auth.service';
+import { Controller, Get, Request, UseGuards } from '@nestjs/common';
 
 @Controller()
 export class LoginController {

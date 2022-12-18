@@ -1,4 +1,3 @@
-import { Public } from '@Decorators/public.decorator';
 import { UpdateUserDto } from '@Dtos/user/update-user.dto';
 import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
 import { IpGuard } from '@Guards/authorization/ip-auth.guard';
@@ -18,18 +17,20 @@ import { UserService } from '../services/user/user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Public()
+  @UseGuards(AdminGuard, IpGuard)
   @Get()
   async findAll(): Promise<UserView[]> {
     return this.userService.findAll();
   }
 
+  @UseGuards(AdminGuard, IpGuard)
   @Get(':email')
   @UseGuards(AdminGuard, IpGuard)
   async findOne(@Param('email') email: string): Promise<UserView> {
     return await this.userService.findByEmail(email);
   }
 
+  @UseGuards(AdminGuard, IpGuard)
   @Patch()
   async update(@Request() req, @Body() data: UpdateUserDto): Promise<void> {
     await this.userService.update({
