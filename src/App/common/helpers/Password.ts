@@ -1,8 +1,8 @@
 import * as bcrypt from 'bcrypt';
 
-export function treatPassword(value: string | undefined): string {
+export function treatPassword(value: string | undefined): string | null {
   if (!value) {
-    value = '';
+    return null;
   }
   return bcrypt.hashSync(value, bcrypt.genSaltSync(10));
 }

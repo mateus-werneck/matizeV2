@@ -1,19 +1,22 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
+import { CustomerEntity } from '@Entities/customer.entity';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { Injectable } from '@nestjs/common';
 import { CreateCustomerDto } from '../../dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '../../dtos/customer/update-customer.dto';
 import { CustomerRepository } from './customer.repository';
+import { treatCustomerUpdateData } from './helpers/treatCustomerData';
 
 @Injectable()
 export class PrismaCustomerRepository implements CustomerRepository {
   constructor(private prisma: PrismaService) {}
 
-  async findAll(): Promise<object[]> {
-    return await this.prisma.customer.findMany();
+  async findAll(): Promise<CustomerEntity[]> {
+    const customers = await this.prisma.customer.findMany();
+    return customers.map((customer) => new CustomerEntity(customer));
   }
 
-  async findOne(matizeId: string): Promise<object> {
+  async findOne(matizeId: string): Promise<CustomerEntity> {
     const customer = await this.prisma.customer.findUnique({
       where: { matizeId }
     });
@@ -22,11 +25,14 @@ export class PrismaCustomerRepository implements CustomerRepository {
       throw new UserNotFoundException();
     }
 
-    return customer;
+    return new CustomerEntity(customer);
   }
 
-  async findByEmail(email: string): Promise<object> {
-    return await this.prisma.customer.findFirstOrThrow({ where: { email } });
+  async findByEmail(email: string): Promise<CustomerEntity> {
+    const customer = await this.prisma.customer.findFirstOrThrow({
+      where: { email }
+    });
+    return new CustomerEntity(customer);
   }
 
   async create(customer: CreateCustomerDto): Promise<void> {
@@ -44,11 +50,9 @@ export class PrismaCustomerRepository implements CustomerRepository {
     matizeId: string;
     data: UpdateCustomerDto;
   }): Promise<void> {
-    // const updateData = {
-    //   ...data,
-    //   password:
-    // }
-    // await this.prisma.customer.update({where: matizeId,})
+    const {matizeId, data} = params
+    const updateData = treatCustomerUpdateData(data)
+    await this.prisma.customer.update({where: { matizeId }, data: updateData })
   }
 
   async remove(matizeId: string): Promise<void> {

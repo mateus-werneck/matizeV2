@@ -1,3 +1,5 @@
+import { treatStringToDate } from '@Helpers/Date';
+import { treatPassword } from '@Helpers/Password';
 import {
   IsDateString,
   IsNotEmpty,
@@ -24,4 +26,22 @@ export class UpdateCustomerDto {
   @MinLength(8)
   @MaxLength(256)
   password?: string;
+
+  getPhoneNumber(): string | null {
+    if (!this.phoneNumber) {
+      return null;
+    }
+    return this.phoneNumber;
+  }
+
+  getBirthDate(): Date | null {
+    if (this.birthDate) {
+      return treatStringToDate(this.birthDate);
+    }
+    return null;
+  }
+
+  getPassword(): string | null {
+    return treatPassword(this.password);
+  }
 }

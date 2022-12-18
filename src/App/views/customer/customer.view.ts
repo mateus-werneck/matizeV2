@@ -1,14 +1,15 @@
-import { UserView } from '@Interfaces/user/user.view';
+import { CustomerView } from '@Interfaces/customer/customer.view';
 import { ViewMapper } from '@Views/standard/view';
 
-export class UserViewMapper extends ViewMapper {
-  props: UserView;
+export class CustomerViewMapper extends ViewMapper {
+  props: CustomerView;
 
   getPropsToView(): string[] {
     return [
       'matizeId',
       'firstName',
       'lastName',
+      'fullName',
       'email',
       'phoneNumber',
       'createdAt',
