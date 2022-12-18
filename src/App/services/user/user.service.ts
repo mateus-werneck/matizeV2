@@ -17,7 +17,7 @@ export class UserService extends Service {
     return this.treatList(users) as UserView[];
   }
 
-  async findUserByMatizeId(matizeId: string): Promise<UserEntity | null> {
+  async findByMatizeId(matizeId: string): Promise<UserEntity> {
     return this.userRepository.findOne(matizeId);
   }
 

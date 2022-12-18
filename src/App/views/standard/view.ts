@@ -18,7 +18,7 @@ export abstract class ViewMapper {
   }
 
   getData(): View {
-    return this.props;
+    return this.props as View;
   }
 
   hasData(): boolean {

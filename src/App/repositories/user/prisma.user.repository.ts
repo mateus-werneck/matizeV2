@@ -12,13 +12,13 @@ import { UserRepository } from './user.repository';
 export class PrismaUserRepository implements UserRepository {
   constructor(private prisma: PrismaService) {}
 
-  async findOne(matizeId: string): Promise<UserEntity | null> {
+  async findOne(matizeId: string): Promise<UserEntity> {
     const user = await this.prisma.user.findUnique({
       where: { matizeId }
     });
 
     if (!user) {
-      return null;
+      return new UserEntity({});
     }
 
     return new UserEntity(user);

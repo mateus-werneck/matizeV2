@@ -4,7 +4,7 @@ import { UserEntity } from '@Entities/user.entity';
 import { IUserRepository } from '@Interfaces/user/user.repository';
 
 export abstract class UserRepository implements IUserRepository {
-  abstract findOne: (matizeId: string) => Promise<UserEntity | null>;
+  abstract findOne: (matizeId: string) => Promise<UserEntity>;
   abstract findByEmail: (email: string) => Promise<UserEntity>;
   abstract findAll: () => Promise<UserEntity[]>;
   abstract create: (user: CreateUserDto) => Promise<void>;
