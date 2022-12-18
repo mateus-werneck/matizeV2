@@ -38,4 +38,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 thunderActivity.json
-/src/App/Config/envs/*
+production.env
