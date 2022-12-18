@@ -22,6 +22,6 @@ export class UpdateUserDto {
   password?: string;
 
   getPassword(): string {
-    return treatPassword(this.password)
+    return treatPassword(this.password);
   }
 }

@@ -12,7 +12,6 @@ import {
   MinLength
 } from 'class-validator';
 
-
 export class CreateCustomerDto {
   @isCpf()
   @IsNotEmpty()
@@ -53,14 +52,14 @@ export class CreateCustomerDto {
   password: string;
 
   getFullName(): string {
-    return `${this.firstName} ${this.lastName}`
+    return `${this.firstName} ${this.lastName}`;
   }
 
   getPassword(): string {
-    return treatPassword(this.password)
+    return treatPassword(this.password);
   }
 
   getBirthDate(): Date {
-    return treatStringToDate(this.birthDate)
+    return treatStringToDate(this.birthDate);
   }
 }

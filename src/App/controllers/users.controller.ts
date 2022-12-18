@@ -35,7 +35,7 @@ export class UserController {
   @UseGuards(AdminGuard, IpGuard)
   async findOne(@Param('matizeId') matizeId: string): Promise<UserView> {
     const user = await this.userService.findByMatizeId(matizeId);
-    return user.toView() as UserView
+    return user.toView() as UserView;
   }
 
   @Post()

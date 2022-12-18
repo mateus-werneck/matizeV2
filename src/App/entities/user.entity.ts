@@ -7,7 +7,7 @@ export class UserEntity extends Entity {
   props: IUser;
 
   get email(): string {
-    return this.props.email
+    return this.props.email;
   }
 
   get password(): string {
