@@ -1,4 +1,4 @@
-import { hasText } from '@Helpers/Object';
+import { isValidObject } from '@Helpers/Object';
 import { View } from '@Interfaces/standard/view';
 
 export abstract class ViewMapper {
@@ -22,6 +22,6 @@ export abstract class ViewMapper {
   }
 
   hasData(): boolean {
-    return Object.keys(this.props).length > 0;
+    return isValidObject(this.props);
   }
 }
