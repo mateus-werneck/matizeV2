@@ -3,9 +3,11 @@ import { CreateAddressDto } from '@Dtos/address/create-address.dto';
 import { UpdateAddressDto } from '@Dtos/address/update-address.dto';
 import { AddressEntity } from '@Entities/address.entity';
 import { isValidObject, treatObject } from '@Helpers/Object';
+import { Injectable } from '@nestjs/common';
 import { Address } from '@prisma/client';
 import { AddressRepository } from './address.repository';
 
+@Injectable()
 export class PrismaAddressRepository implements AddressRepository {
   constructor(private prisma: PrismaService) {}
 
@@ -16,14 +18,10 @@ export class PrismaAddressRepository implements AddressRepository {
     return new AddressEntity(address);
   }
 
-  async findAll(customerMatizeId?: string): Promise<AddressEntity[]> {
-    let where = {};
-
-    if (customerMatizeId) {
-      where = { customerMatizeId };
-    }
-
-    const addresses = await this.prisma.address.findMany({ where });
+  async findAll(customerMatizeId: string): Promise<AddressEntity[]> {
+    const addresses = await this.prisma.address.findMany({
+      where: { customerMatizeId }
+    });
     return addresses.map((address) => new AddressEntity(address));
   }
 

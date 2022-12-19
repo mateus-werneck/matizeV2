@@ -9,18 +9,16 @@ import {
   Param,
   Patch,
   Post,
-  Query,
   Request
 } from '@nestjs/common';
 
-@Controller('address')
+@Controller('addresses')
 export class AddressController {
   constructor(private readonly addressService: AddressService) {}
 
   @Get()
-  async findAll(
-    @Query('customer') customerMatizeId?: string
-  ): Promise<AddressView[]> {
+  async findAll(@Request() req): Promise<AddressView[]> {
+    const customerMatizeId = req.user.matizeId
     return this.addressService.findAll(customerMatizeId);
   }
 
