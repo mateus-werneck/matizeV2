@@ -1,6 +1,5 @@
 import { CreateUserDto } from '@Dtos/user/create-user.dto';
 import { UpdateUserDto } from '@Dtos/user/update-user.dto';
-import { UserEntity } from '@Entities/user.entity';
 import { UserView } from '@Interfaces/user/user.view';
 import { UserRepository } from '@Repositories/user/user.repository';
 import { Service } from '@Services/standard/service';
@@ -17,8 +16,9 @@ export class UserService extends Service {
     return this.treatList(users) as UserView[];
   }
 
-  async findByMatizeId(matizeId: string): Promise<UserEntity> {
-    return this.userRepository.findOne(matizeId);
+  async findByMatizeId(matizeId: string): Promise<UserView> {
+    const user = this.userRepository.findOne(matizeId)
+    return this.treatItem(user) as UserView;
   }
 
   async findByEmail(email: string): Promise<UserView> {

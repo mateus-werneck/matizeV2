@@ -29,7 +29,7 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-09-04T13:58:01.240Z",
-    "modified": "2022-10-02T10:44:48.536Z",
+    "modified": "2022-12-19T12:22:04.953Z",
     "headers": [],
     "params": [],
     "body": {
@@ -309,6 +309,39 @@
     "sortNum": 130000,
     "created": "2022-12-16T22:04:47.214Z",
     "modified": "2022-12-18T13:31:00.706Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c102c49f-7ec0-4d3b-b412-949e715a4062",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "0d617536-01ec-47b5-a05f-767927a8771d",
+    "name": "create",
+    "url": "{{HOST}}/customers",
+    "method": "POST",
+    "sortNum": 2500,
+    "created": "2022-12-19T12:22:06.371Z",
+    "modified": "2022-12-19T12:22:47.331Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n        \"document\": \"12700136616\",\n        \"firstName\": \"Marina\",\n        \"lastName\": \"Silva Dias\",\n        \"email\": \"maarinasd@gmail.com\",\n        \"phoneNumber\": \"+5531971830923\",\n        \"password\": \"minhaSenha123\",\n        \"birthDate\": \"1997-02-20\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d8b30bbc-67cf-4de9-a795-8538273e3af5",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "0d617536-01ec-47b5-a05f-767927a8771d",
+    "name": "findAll",
+    "url": "{{HOST}}/customers",
+    "method": "GET",
+    "sortNum": 5000,
+    "created": "2022-12-19T12:22:38.626Z",
+    "modified": "2022-12-19T12:22:56.615Z",
     "headers": [],
     "params": [],
     "tests": []

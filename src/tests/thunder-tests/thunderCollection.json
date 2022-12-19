@@ -46,6 +46,13 @@
         "containerId": "",
         "created": "2022-10-02T15:18:29.650Z",
         "sortNum": 60000
+      },
+      {
+        "_id": "0d617536-01ec-47b5-a05f-767927a8771d",
+        "name": "Customers",
+        "containerId": "",
+        "created": "2022-12-19T12:21:47.968Z",
+        "sortNum": 70000
       }
     ],
     "settings": {
