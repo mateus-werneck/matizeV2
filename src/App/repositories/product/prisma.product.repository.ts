@@ -1,10 +1,10 @@
 import { CreateProductDto } from '@Dtos/product/create-product.dto';
 import { UpdateProductDto } from '@Dtos/product/update-product.dto';
 import { ProductEntity } from '@Entities/product.entity';
+import { isValidObject, treatObject } from '@Helpers/Object';
 import { ProductRepository } from '@Repositories/product/product.repository';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
-import { isValidObject, treatObject } from '../../common/helpers/Object';
 
 @Injectable()
 export class PrismaProductRepository
@@ -21,13 +21,24 @@ export class PrismaProductRepository
 
   async findOne(matizeId: string): Promise<ProductEntity> {
     const product = this.prisma.product.findFirstOrThrow({
-      where: { matizeId }
+      where: { matizeId },
+      include: {
+        type: true,
+        size: true,
+        images: { include: { file: true } }
+      }
     });
     return this.treatEntity(product);
   }
 
   async findAll(): Promise<ProductEntity[]> {
-    const products = await this.prisma.product.findMany();
+    const products = await this.prisma.product.findMany({
+      include: {
+        type: true,
+        size: true,
+        images: { include: { file: true } }
+      }
+    });
     return this.treatList(products);
   }
 
