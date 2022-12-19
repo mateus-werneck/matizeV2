@@ -3,14 +3,14 @@ import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
 import { CustomerEntity } from '@Entities/customer.entity';
 import { ICustomerRepository } from '@Interfaces/customer/customer.repository';
 
-export class CustomerRepository implements ICustomerRepository {
-  findAll: () => Promise<CustomerEntity[]>;
-  findOne: (matizeId: string) => Promise<CustomerEntity>;
-  findByEmail: (email: string) => Promise<CustomerEntity>;
-  create: (customer: CreateCustomerDto) => Promise<void>;
-  update: (params: {
+export abstract class CustomerRepository implements ICustomerRepository {
+  abstract findAll: () => Promise<CustomerEntity[]>;
+  abstract findOne: (matizeId: string) => Promise<CustomerEntity>;
+  abstract findByEmail: (email: string) => Promise<CustomerEntity>;
+  abstract create: (customer: CreateCustomerDto) => Promise<void>;
+  abstract update: (params: {
     matizeId: string;
     data: UpdateCustomerDto;
   }) => Promise<void>;
-  remove: (matizeId: string) => Promise<void>;
+  abstract remove: (matizeId: string) => Promise<void>;
 }
