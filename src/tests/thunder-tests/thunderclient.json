@@ -67,12 +67,12 @@
     "method": "POST",
     "sortNum": 50000,
     "created": "2022-09-04T14:02:14.251Z",
-    "modified": "2022-09-04T14:06:28.738Z",
+    "modified": "2022-12-19T14:03:47.418Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"document\": \"31365770\",\n    \"city\": \"Belo Horizonte\",\n    \"state\": \"MG\",\n    \"street\": \"Av Antonio Francisco Lisboa\",\n    \"number\": 2277,\n    \"district\": \"Bandeirantes\",\n    \"additionalInfo\": \"Casa 1\"\n}",
+      "raw": "{\n    \"document\": \"31330170\",\n    \"city\": \"Belo Horizonte\",\n    \"state\": \"MG\",\n    \"street\": \"Rua Castelo Serpa\",\n    \"number\": 121,\n    \"district\": \"Castelo\",\n    \"additionalInfo\": \"Apto 102\"\n}",
       "form": []
     },
     "tests": []
