@@ -1,3 +1,5 @@
+import { Address } from '@prisma/client';
+
 export interface ICustomer {
   matizeId: string;
   document: string;
@@ -11,4 +13,5 @@ export interface ICustomer {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
+  addresses: Address[];
 }

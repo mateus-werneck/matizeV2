@@ -13,7 +13,8 @@ export class CustomerViewMapper extends ViewMapper {
       'email',
       'phoneNumber',
       'createdAt',
-      'updatedAt'
+      'updatedAt',
+      'getAddresses'
     ];
   }
 }

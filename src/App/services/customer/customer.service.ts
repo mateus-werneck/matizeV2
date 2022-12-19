@@ -19,7 +19,7 @@ export class CustomerService extends Service {
 
   async findByMatizeId(matizeId: string): Promise<CustomerView> {
     const customer = this.customerRepository.findOne(matizeId);
-    return this.treatItem(customer) as CustomerView
+    return this.treatItem(customer) as CustomerView;
   }
 
   async findByEmail(email: string): Promise<UserView> {

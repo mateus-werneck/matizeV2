@@ -1,3 +1,4 @@
+import { Entity } from '@Entities/standard/entity';
 import { isValidObject } from '@Helpers/Object';
 import { View } from '@Interfaces/standard/view';
 
@@ -10,11 +11,25 @@ export abstract class ViewMapper {
     this.props = {} as View;
   }
 
-  setData(entity: object) {
+  setData(entity: Entity) {
     const props = this.getPropsToView();
-    for (const prop of props) {
-      this.props[prop] = entity[prop];
+    props.forEach((prop) => this.setViewProp(prop, entity));
+  }
+
+  private hasCustomData(prop: string) {
+    return prop.search('get') != -1;
+  }
+
+  private setViewProp(prop: string, entity: Entity) {
+    if (this.hasCustomData(prop)) {
+      return this.setCustomViewProp(prop, entity);
     }
+    this.props[prop] = entity.props[prop];
+  }
+
+  private setCustomViewProp(prop: string, entity: Entity) {
+    const customProp = prop.replace('get', '');
+    this.props[customProp] = entity[customProp.toLowerCase()];
   }
 
   getData(): View {

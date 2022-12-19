@@ -17,7 +17,7 @@ export class UserService extends Service {
   }
 
   async findByMatizeId(matizeId: string): Promise<UserView> {
-    const user = this.userRepository.findOne(matizeId)
+    const user = this.userRepository.findOne(matizeId);
     return this.treatItem(user) as UserView;
   }
 

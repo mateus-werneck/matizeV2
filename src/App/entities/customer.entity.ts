@@ -1,6 +1,9 @@
 import { Entity } from '@Entities/standard/entity';
+import { treatMany } from '@Helpers/ViewTreat';
+import { AddressView } from '@Interfaces/address/address.view';
 import { ICustomer } from '@Interfaces/customer/customer';
 import { CustomerViewMapper } from '@Views/customer/customer.view';
+import { AddressEntity } from './address.entity';
 
 export class CustomerEntity extends Entity {
   props: ICustomer;
@@ -15,6 +18,13 @@ export class CustomerEntity extends Entity {
 
   get isAdmin(): boolean {
     return false;
+  }
+
+  get addresses(): AddressView[] {
+    const addresses = this.props.addresses.map(
+      (address) => new AddressEntity(address)
+    );
+    return treatMany(addresses) as AddressView[];
   }
 
   getViewClass(): CustomerViewMapper {

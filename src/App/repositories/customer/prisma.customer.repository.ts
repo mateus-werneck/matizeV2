@@ -1,9 +1,9 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
+import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
+import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
 import { CustomerEntity } from '@Entities/customer.entity';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { Injectable } from '@nestjs/common';
-import { CreateCustomerDto } from '../../dtos/customer/create-customer.dto';
-import { UpdateCustomerDto } from '../../dtos/customer/update-customer.dto';
 import { CustomerRepository } from './customer.repository';
 import { treatCustomerUpdateData } from './helpers/treatCustomerData';
 
@@ -12,13 +12,17 @@ export class PrismaCustomerRepository implements CustomerRepository {
   constructor(private prisma: PrismaService) {}
 
   async findAll(): Promise<CustomerEntity[]> {
-    const customers = await this.prisma.customer.findMany();
+    const customers = await this.prisma.customer.findMany({
+      where: { deletedAt: null },
+      include: { addresses: true }
+    });
     return customers.map((customer) => new CustomerEntity(customer));
   }
 
   async findOne(matizeId: string): Promise<CustomerEntity> {
     const customer = await this.prisma.customer.findUnique({
-      where: { matizeId }
+      where: { matizeId },
+      include: { addresses: true }
     });
 
     if (!customer) {
@@ -50,9 +54,12 @@ export class PrismaCustomerRepository implements CustomerRepository {
     matizeId: string;
     data: UpdateCustomerDto;
   }): Promise<void> {
-    const {matizeId, data} = params
-    const updateData = treatCustomerUpdateData(data)
-    await this.prisma.customer.update({where: { matizeId }, data: updateData })
+    const { matizeId, data } = params;
+    const updateData = treatCustomerUpdateData(data);
+    await this.prisma.customer.update({
+      where: { matizeId },
+      data: updateData
+    });
   }
 
   async remove(matizeId: string): Promise<void> {
