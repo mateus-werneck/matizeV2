@@ -25,7 +25,7 @@ export abstract class Entity implements IEntity {
 
   toView(): View {
     const viewClassName = this.getViewClass();
-    const viewClass = new viewClassName(this)
+    const viewClass = new viewClassName(this);
     return viewClass.getData();
   }
 }

@@ -2,6 +2,7 @@ import { BasicStrategy } from '@Auth/strategies/basic.strategy';
 import { AddressController } from '@Controllers/address.controller';
 import { CustomerController } from '@Controllers/customer.controller';
 import { LoginController } from '@Controllers/login.controller';
+import { ProductController } from '@Controllers/product.controller';
 import { UserController } from '@Controllers/users.controller';
 import { ServiceModule } from '@Services/service.module';
 import { Module } from '@nestjs/common';
@@ -13,6 +14,7 @@ import { Module } from '@nestjs/common';
     AddressController,
     CustomerController,
     LoginController,
+    ProductController,
     UserController
   ]
 })

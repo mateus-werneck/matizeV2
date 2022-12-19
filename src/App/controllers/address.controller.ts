@@ -18,7 +18,7 @@ export class AddressController {
 
   @Get()
   async findAll(@Request() req): Promise<AddressView[]> {
-    const customerMatizeId = req.user.matizeId
+    const customerMatizeId = req.user.matizeId;
     return this.addressService.findAll(customerMatizeId);
   }
 

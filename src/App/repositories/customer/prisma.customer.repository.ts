@@ -15,7 +15,7 @@ export class PrismaCustomerRepository
   getRepository(): string {
     return 'customer';
   }
-  
+
   getEntity(): typeof CustomerEntity {
     return CustomerEntity;
   }
@@ -73,6 +73,6 @@ export class PrismaCustomerRepository
   }
 
   async remove(matizeId: string): Promise<void> {
-    await this.softDelete(matizeId)
+    await this.softDelete(matizeId);
   }
 }

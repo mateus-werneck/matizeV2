@@ -71,6 +71,6 @@ export class PrismaUserRepository
   }
 
   async remove(matizeId: string): Promise<void> {
-    await this.softDelete(matizeId)
+    await this.softDelete(matizeId);
   }
 }
