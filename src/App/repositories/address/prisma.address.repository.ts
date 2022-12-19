@@ -16,8 +16,14 @@ export class PrismaAddressRepository implements AddressRepository {
     return new AddressEntity(address);
   }
 
-  async findAll(): Promise<AddressEntity[]> {
-    const addresses = await this.prisma.address.findMany();
+  async findAll(customerMatizeId?: string): Promise<AddressEntity[]> {
+    let where = {};
+
+    if (customerMatizeId) {
+      where = { customerMatizeId };
+    }
+
+    const addresses = await this.prisma.address.findMany({ where });
     return addresses.map((address) => new AddressEntity(address));
   }
 
@@ -44,12 +50,12 @@ export class PrismaAddressRepository implements AddressRepository {
     data: UpdateAddressDto;
   }): Promise<void> {
     const { matizeId, data } = params;
-    treatObject(data)
+    treatObject(data);
 
     if (!isValidObject(data)) {
       return;
     }
-    
+
     await this.prisma.address.update({ where: { matizeId }, data });
   }
 
