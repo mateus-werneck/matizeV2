@@ -1,13 +1,13 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { CreateFileDto } from '@Dtos/file/create-file-dto';
 import { FileEntity } from '@Entities/file.entity';
-import { saveImage } from '@Helpers/File';
+import { saveImageFile } from '@Helpers/File';
+import { FileView } from '@Interfaces/file/file.view';
 import { FileRepository } from '@Repositories/file/file.repository';
 import { ProductImageRepository } from '@Repositories/product/product.image.repository';
 import { Service } from '@Services/standard/service';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import mime from 'mime-types';
-import { FileView } from '../../interfaces/file/file.view';
 
 @Injectable()
 export class FileService extends Service {
@@ -38,7 +38,7 @@ export class FileService extends Service {
     type: string,
     ownerMatizeId: string
   ): Promise<void> {
-    const imageFile = await saveImage(file, type);
+    const imageFile = await saveImageFile(file, type);
     let fileEntity;
 
     try {

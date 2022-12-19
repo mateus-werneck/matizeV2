@@ -17,7 +17,7 @@ export async function saveFileToStorage(
   }
 }
 
-export async function saveImage(
+export async function saveImageFile(
   file: Express.Multer.File,
   type: string
 ): Promise<string> {
@@ -29,7 +29,7 @@ export async function saveImage(
   
     const storagePath = `${process.env.IMAGE_PATH}/${fileName}`
   
-  await this.saveFileToStorage(tmpPath, storagePath)
+  await saveFileToStorage(tmpPath, storagePath)
   return fileName
 }
 

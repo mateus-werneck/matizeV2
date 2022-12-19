@@ -279,11 +279,11 @@
     "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
     "containerId": "087e0b20-5bff-4d10-9785-5f74caa453ee",
     "name": "create",
-    "url": "{{HOST}}/files/productImage/b06cda65-252a-41e3-9863-7c2d3112a30e",
+    "url": "{{HOST}}/files/image/product/b06cda65-252a-41e3-9863-7c2d3112a30e",
     "method": "POST",
     "sortNum": 180000,
     "created": "2022-10-02T15:18:34.397Z",
-    "modified": "2022-10-02T15:21:29.300Z",
+    "modified": "2022-12-19T17:43:01.919Z",
     "headers": [],
     "params": [],
     "body": {
@@ -293,7 +293,7 @@
       "files": [
         {
           "name": "file",
-          "value": "\\\\wsl.localhost\\Ubuntu-20.04\\home\\mateuswerneck\\Documents\\images.png"
+          "value": "../../../../a2378918622_10.jpg"
         }
       ]
     },
@@ -342,6 +342,20 @@
     "sortNum": 5000,
     "created": "2022-12-19T12:22:38.626Z",
     "modified": "2022-12-19T12:22:56.615Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "117ad17d-9db9-4871-ab6b-cbed1486c1f0",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "087e0b20-5bff-4d10-9785-5f74caa453ee",
+    "name": "findAll",
+    "url": "{{HOST}}/files",
+    "method": "GET",
+    "sortNum": 190000,
+    "created": "2022-12-19T17:45:01.958Z",
+    "modified": "2022-12-19T17:45:08.212Z",
     "headers": [],
     "params": [],
     "tests": []
