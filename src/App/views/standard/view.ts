@@ -32,7 +32,7 @@ export abstract class ViewMapper {
   }
 
   private setCustomViewProp(prop: string, entity: Entity) {
-    const customProp = prop.replace('get', '');
+    const customProp = prop.replace('get', '').replace('_', '');
     this.props[customProp] = entity[customProp.toLowerCase()];
   }
 

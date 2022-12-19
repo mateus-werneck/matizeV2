@@ -8,4 +8,8 @@ export class ProductEntity extends Entity {
   getViewClass(): typeof ProductViewMapper {
     return ProductViewMapper;
   }
+
+  get price(): number {
+    return Number(this.props.price)
+  }
 }

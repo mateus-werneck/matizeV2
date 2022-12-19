@@ -12,7 +12,7 @@ export class ProductViewMapper extends ViewMapper {
       'description',
       'typeName',
       'sizeName',
-      'price',
+      'get_price',
       'quantity'
     ];
   }
