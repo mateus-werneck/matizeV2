@@ -10,10 +10,9 @@ export class FileEntity extends Entity {
   }
 
   get url(): string {
-    const systemUrl = String(process.env.SYSTEM_URL)
     const storage = this.getStoragePath()
     const fileName = this.props.name
-    return `${systemUrl}${storage}/${fileName}`
+    return `${storage}/${fileName}`
   }
 
   private getStoragePath(): string {

@@ -1,3 +1,4 @@
+import { Public } from '@Decorators/public.decorator';
 import { IpGuard } from '@Guards/authorization/ip-auth.guard';
 import { MatizeFileInterceptor } from '@Interceptors/matize.file.interceptor';
 import { FileView } from '@Interfaces/file/file.view';
@@ -8,10 +9,15 @@ import {
   Get,
   Param,
   Post,
+  Res,
+  StreamableFile,
   UploadedFile,
   UseGuards,
   UseInterceptors
 } from '@nestjs/common';
+import { Response } from 'express';
+import { createReadStream } from 'fs';
+import { join } from 'path';
 import { AdminGuard } from '../common/guards/authorization/admin-auth.guard';
 
 @Controller('files')
@@ -25,8 +31,15 @@ export class FileController {
   }
 
   @Get(':matizeId')
-  async findOne(@Param() matizeId: string): Promise<FileView> {
-    return await this.fileService.findByMatizeId(matizeId)
+  @Public()
+  async findOne(@Param('matizeId') matizeId: string, @Res({ passthrough: true }) res: Response): Promise<StreamableFile> {
+    const fileView = await this.fileService.findByMatizeId(matizeId)
+    const file = createReadStream(join(process.cwd(), fileView.url))
+    res.set({
+      'Content-Type': 'application/json',
+      'Content-Disposition': `attachment; filename="${fileView.name}"` 
+    })
+    return new StreamableFile(file)
   }
 
   @Post('/image/:type/:matizeId')
