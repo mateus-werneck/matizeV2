@@ -20,6 +20,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@Auth/*": ["src/Config/auth/*"],
       "@Controllers/*": ["src/App/controllers/*"],
       "@Database/*": ["src/Config/database/*"],
       "@Decorators/*": ["src/App/common/decorators/*"],
