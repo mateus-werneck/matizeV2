@@ -12,6 +12,10 @@ export class PrismaCustomerRepository
   extends PrismaRepository
   implements CustomerRepository
 {
+  getRepository(): string {
+    return 'customer';
+  }
+  
   getEntity(): typeof CustomerEntity {
     return CustomerEntity;
   }
@@ -69,9 +73,6 @@ export class PrismaCustomerRepository
   }
 
   async remove(matizeId: string): Promise<void> {
-    await this.prisma.customer.update({
-      where: { matizeId },
-      data: { deletedAt: new Date() }
-    });
+    await this.softDelete(matizeId)
   }
 }

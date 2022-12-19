@@ -13,6 +13,10 @@ export class PrismaUserRepository
   extends PrismaRepository
   implements UserRepository
 {
+  getRepository(): string {
+    return 'user';
+  }
+
   getEntity(): typeof UserEntity {
     return UserEntity;
   }
@@ -67,6 +71,6 @@ export class PrismaUserRepository
   }
 
   async remove(matizeId: string): Promise<void> {
-    await this.prisma.user.delete({ where: { matizeId } });
+    await this.softDelete(matizeId)
   }
 }

@@ -1,13 +1,20 @@
+import { CreateProductDto } from '@Dtos/product/create-product.dto';
+import { UpdateProductDto } from '@Dtos/product/update-product.dto';
 import { ProductEntity } from '@Entities/product.entity';
 import { ProductRepository } from '@Repositories/product/product.repository';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
+import { isValidObject, treatObject } from '../../common/helpers/Object';
 
 @Injectable()
 export class PrismaProductRepository
   extends PrismaRepository
   implements ProductRepository
 {
+  getRepository(): string {
+    return 'product';
+  }
+
   getEntity(): typeof ProductEntity {
     return ProductEntity;
   }
@@ -16,17 +23,38 @@ export class PrismaProductRepository
     const product = this.prisma.product.findFirstOrThrow({
       where: { matizeId }
     });
-    return this.treatEntity(product)
+    return this.treatEntity(product);
   }
 
   async findAll(): Promise<ProductEntity[]> {
     const products = await this.prisma.product.findMany();
-    return this.treatList(products)
+    return this.treatList(products);
   }
 
-  create: (data: object) => Promise<void>;
+  async create(data: CreateProductDto): Promise<void> {
+    treatObject(data);
+    await this.prisma.product.create({ data });
+  }
 
-  update: (params: { matizeId: string; data: object }) => Promise<void>;
+  async update(params: {
+    matizeId: string;
+    data: UpdateProductDto;
+  }): Promise<void> {
+    const { matizeId, data } = params;
 
-  remove: (matizeId: string) => Promise<void>;
+    treatObject(data);
+
+    if (!isValidObject(data)) {
+      return;
+    }
+
+    await this.prisma.product.update({
+      where: { matizeId },
+      data
+    });
+  }
+
+  async remove(matizeId: string): Promise<void> {
+    await this.softDelete(matizeId)
+  }
 }

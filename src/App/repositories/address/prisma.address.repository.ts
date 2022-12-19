@@ -12,6 +12,10 @@ export class PrismaAddressRepository
   extends PrismaRepository
   implements AddressRepository
 {
+  getRepository(): string {
+    return 'address';
+  }
+
   getEntity(): typeof AddressEntity {
     return AddressEntity;
   }
@@ -63,6 +67,6 @@ export class PrismaAddressRepository
   }
 
   async remove(matizeId: string): Promise<void> {
-    await this.prisma.address.delete({ where: { matizeId } });
+    await this.softDelete(matizeId);
   }
 }
