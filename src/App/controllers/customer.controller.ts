@@ -1,5 +1,7 @@
 import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
+import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
+import { IpGuard } from '@Guards/authorization/ip-auth.guard';
 import { CustomerView } from '@Interfaces/customer/customer.view';
 import { CustomerService } from '@Services/customer/customer.service';
 import {
@@ -9,7 +11,8 @@ import {
   Param,
   Patch,
   Post,
-  Request
+  Request,
+  UseGuards
 } from '@nestjs/common';
 
 @Controller('customers')
@@ -17,6 +20,7 @@ export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
   @Get()
+  @UseGuards(AdminGuard, IpGuard)
   async findAll(): Promise<CustomerView[]> {
     return this.customerService.findAll();
   }
