@@ -1,28 +1,33 @@
-import { PrismaService } from '@Database/prisma/prisma.service';
 import { CreateAddressDto } from '@Dtos/address/create-address.dto';
 import { UpdateAddressDto } from '@Dtos/address/update-address.dto';
 import { AddressEntity } from '@Entities/address.entity';
 import { isValidObject, treatObject } from '@Helpers/Object';
+import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
 import { Address } from '@prisma/client';
 import { AddressRepository } from './address.repository';
 
 @Injectable()
-export class PrismaAddressRepository implements AddressRepository {
-  constructor(private prisma: PrismaService) {}
+export class PrismaAddressRepository
+  extends PrismaRepository
+  implements AddressRepository
+{
+  getEntity(): typeof AddressEntity {
+    return AddressEntity;
+  }
 
   async findOne(matizeId: string): Promise<AddressEntity> {
     const address = this.prisma.address.findFirstOrThrow({
       where: { matizeId }
     });
-    return new AddressEntity(address);
+    return this.treatEntity(address);
   }
 
   async findAll(customerMatizeId: string): Promise<AddressEntity[]> {
     const addresses = await this.prisma.address.findMany({
       where: { customerMatizeId }
     });
-    return addresses.map((address) => new AddressEntity(address));
+    return this.treatList(addresses);
   }
 
   async create(params: {

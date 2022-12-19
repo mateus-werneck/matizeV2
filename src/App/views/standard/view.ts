@@ -7,8 +7,12 @@ export abstract class ViewMapper {
 
   abstract getPropsToView(): string[];
 
-  constructor() {
+  constructor(entity?: Entity) {
     this.props = {} as View;
+
+    if (entity) {
+      this.setData(entity);
+    }
   }
 
   setData(entity: Entity) {

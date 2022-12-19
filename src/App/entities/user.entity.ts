@@ -18,7 +18,7 @@ export class UserEntity extends Entity {
     return treatStringToBoolean(this.props.isAdmin);
   }
 
-  getViewClass(): UserViewMapper {
-    return new UserViewMapper();
+  getViewClass(): typeof UserViewMapper {
+    return UserViewMapper;
   }
 }

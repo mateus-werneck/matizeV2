@@ -5,7 +5,7 @@ import { AddressViewMapper } from '@Views/address/address.view';
 export class AddressEntity extends Entity {
   props: IAddress;
 
-  getViewClass(): AddressViewMapper {
-    return new AddressViewMapper();
+  getViewClass(): typeof AddressViewMapper {
+    return AddressViewMapper;
   }
 }

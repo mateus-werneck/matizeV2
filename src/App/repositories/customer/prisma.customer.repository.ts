@@ -1,22 +1,27 @@
-import { PrismaService } from '@Database/prisma/prisma.service';
 import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
 import { CustomerEntity } from '@Entities/customer.entity';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
+import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
 import { CustomerRepository } from './customer.repository';
 import { treatCustomerUpdateData } from './helpers/treatCustomerData';
 
 @Injectable()
-export class PrismaCustomerRepository implements CustomerRepository {
-  constructor(private prisma: PrismaService) {}
+export class PrismaCustomerRepository
+  extends PrismaRepository
+  implements CustomerRepository
+{
+  getEntity(): typeof CustomerEntity {
+    return CustomerEntity;
+  }
 
   async findAll(): Promise<CustomerEntity[]> {
     const customers = await this.prisma.customer.findMany({
       where: { deletedAt: null },
       include: { addresses: true }
     });
-    return customers.map((customer) => new CustomerEntity(customer));
+    return this.treatList(customers);
   }
 
   async findOne(matizeId: string): Promise<CustomerEntity> {
@@ -29,14 +34,15 @@ export class PrismaCustomerRepository implements CustomerRepository {
       throw new UserNotFoundException();
     }
 
-    return new CustomerEntity(customer);
+    return this.treatEntity(customer);
   }
 
   async findByEmail(email: string): Promise<CustomerEntity> {
     const customer = await this.prisma.customer.findFirstOrThrow({
       where: { email }
     });
-    return new CustomerEntity(customer);
+
+    return this.treatEntity(customer);
   }
 
   async create(customer: CreateCustomerDto): Promise<void> {

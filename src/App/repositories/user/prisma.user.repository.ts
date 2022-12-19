@@ -1,6 +1,6 @@
-import { PrismaService } from '@Database/prisma/prisma.service';
 import { UserEntity } from '@Entities/user.entity';
 import { isValidObject } from '@Helpers/Object';
+import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
 import { CreateUserDto } from 'src/App/dtos/user/create-user.dto';
@@ -9,8 +9,13 @@ import { treatUserUpdateData } from './helpers/treatUserData';
 import { UserRepository } from './user.repository';
 
 @Injectable()
-export class PrismaUserRepository implements UserRepository {
-  constructor(private prisma: PrismaService) {}
+export class PrismaUserRepository
+  extends PrismaRepository
+  implements UserRepository
+{
+  getEntity(): typeof UserEntity {
+    return UserEntity;
+  }
 
   async findOne(matizeId: string): Promise<UserEntity> {
     const user = await this.prisma.user.findUnique({
@@ -18,22 +23,22 @@ export class PrismaUserRepository implements UserRepository {
     });
 
     if (!user) {
-      return new UserEntity({});
+      return this.treatEntity({});
     }
 
-    return new UserEntity(user);
+    return this.treatEntity(user);
   }
 
   async findByEmail(email: string): Promise<UserEntity> {
     const user = await this.prisma.user.findFirstOrThrow({
       where: { email }
     });
-    return new UserEntity(user);
+    return this.treatEntity(user);
   }
 
   async findAll(): Promise<UserEntity[]> {
     const users = await this.prisma.user.findMany();
-    return users.map((user) => new UserEntity(user));
+    return this.treatList(users);
   }
 
   async create(user: CreateUserDto): Promise<void> {

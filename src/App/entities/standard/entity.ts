@@ -1,12 +1,11 @@
 import { hasText } from '@Helpers/Object';
 import { IEntity } from '@Interfaces/standard/entity';
 import { View } from '@Interfaces/standard/view';
-import { ViewMapper } from '@Views/standard/view';
 
 export abstract class Entity implements IEntity {
   props: object;
 
-  abstract getViewClass(): ViewMapper;
+  abstract getViewClass();
 
   constructor(props: object) {
     this.props = props;
@@ -25,8 +24,8 @@ export abstract class Entity implements IEntity {
   }
 
   toView(): View {
-    const viewClass = this.getViewClass();
-    viewClass.setData(this);
+    const viewClassName = this.getViewClass();
+    const viewClass = new viewClassName(this)
     return viewClass.getData();
   }
 }

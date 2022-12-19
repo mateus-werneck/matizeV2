@@ -27,7 +27,7 @@ export class CustomerEntity extends Entity {
     return treatMany(addresses) as AddressView[];
   }
 
-  getViewClass(): CustomerViewMapper {
-    return new CustomerViewMapper();
+  getViewClass(): typeof CustomerViewMapper {
+    return CustomerViewMapper;
   }
 }
