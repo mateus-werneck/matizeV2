@@ -359,5 +359,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "3579e1c4-fff8-410c-8efd-539f735d792d",
+    "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "containerId": "087e0b20-5bff-4d10-9785-5f74caa453ee",
+    "name": "remove",
+    "url": "{{HOST}}/files/daa677d9-cfaf-45d8-af04-fd091f1fd434",
+    "method": "DELETE",
+    "sortNum": 200000,
+    "created": "2022-12-19T17:47:48.030Z",
+    "modified": "2022-12-19T17:49:41.049Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

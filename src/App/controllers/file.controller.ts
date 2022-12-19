@@ -4,6 +4,7 @@ import { FileView } from '@Interfaces/file/file.view';
 import { FileService } from '@Services/file/file.service';
 import {
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -37,5 +38,11 @@ export class FileController {
     @UploadedFile() file: Express.Multer.File
   ) {
     await this.fileService.saveImage(file, type, matizeId);
+  }
+
+  @Delete(':matizeId')
+  @UseGuards(AdminGuard, IpGuard)
+  async remove(@Param('matizeId') matizeId: string): Promise<void> {
+    await this.fileService.remove(matizeId)
   }
 }
