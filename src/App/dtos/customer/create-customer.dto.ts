@@ -56,7 +56,7 @@ export class CreateCustomerDto {
   }
 
   getPassword(): string {
-    return treatPassword(this.password);
+    return treatPassword(this.password) as string;
   }
 
   getBirthDate(): Date {

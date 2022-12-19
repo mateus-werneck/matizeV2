@@ -21,7 +21,7 @@ export class UpdateUserDto {
   @MaxLength(256)
   password?: string;
 
-  getPassword(): string {
+  getPassword(): string | null {
     return treatPassword(this.password);
   }
 }

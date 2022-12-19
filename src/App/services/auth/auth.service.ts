@@ -1,17 +1,18 @@
 import { UserEntity } from '@Entities/user.entity';
 import { InvalidAuthException } from '@Exceptions/auth/invalidAuthException';
-import { treatStringToBoolean } from '@Helpers/Boolean';
 import { decodeJwtSecret, jwtConstants } from '@Helpers/Jwt';
 import { hasValidPassword } from '@Helpers/Password';
-import { Injectable } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
+import { CustomerRepository } from '@Repositories/customer/customer.repository';
 import { UserRepository } from '@Repositories/user/user.repository';
 import { Service } from '@Services/standard/service';
+import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService extends Service {
   constructor(
     private userRepository: UserRepository,
+    private customerRepository: CustomerRepository,
     private jwtService: JwtService
   ) {
     super();
@@ -21,16 +22,32 @@ export class AuthService extends Service {
     let user;
 
     try {
-      user = await this.userRepository.findByEmail(email);
+      user = await this.findCustomer(email);
     } catch (error) {
-      throw new InvalidAuthException();
+      user = await this.findUser(email);
     }
 
     if (!hasValidPassword(password, user.password)) {
       throw new InvalidAuthException();
     }
-
     return user;
+  }
+
+  async findUser(email: string): Promise<UserEntity> {
+    try {
+      return await this.userRepository.findByEmail(email);
+    } catch (error) {
+      throw new InvalidAuthException();
+    }
+  }
+
+  async findCustomer(email: string): Promise<UserEntity> {
+    try {
+      const customer = await this.customerRepository.findByEmail(email);
+      return new UserEntity(customer.getData());
+    } catch (error) {
+      throw new InvalidAuthException();
+    }
   }
 
   async validateAdmin(email: string): Promise<UserEntity> {

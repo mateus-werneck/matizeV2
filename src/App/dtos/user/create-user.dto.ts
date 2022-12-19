@@ -46,6 +46,6 @@ export class CreateUserDto {
   password: string;
 
   getPassword(): string {
-    return treatPassword(this.password);
+    return treatPassword(this.password) as string;
   }
 }
