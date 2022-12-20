@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "12725419-f16d-4cd9-9a65-90ec262fe318",
+    "name": "API Matize - Dev",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-09-04T13:54:29.861Z",
+    "modified": "2022-09-21T23:29:18.818Z",
+    "data": [
+      {
+        "name": "HOST",
+        "value": "http://localhost:3333"
+      },
+      {
+        "name": "email",
+        "value": "maarinasd@gmail.com"
+      },
+      {
+        "name": "password",
+        "value": "minhaSenha123"
+      }
+    ]
+  }
+]

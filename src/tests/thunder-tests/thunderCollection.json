@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
+    "colName": "API Matize",
+    "created": "2022-09-04T13:54:18.510Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "f77505b4-8b13-49cd-83bb-66dc3ae7b29c",
+        "name": "Authentication",
+        "containerId": "",
+        "created": "2022-09-04T13:55:39.967Z",
+        "sortNum": 10000
+      },
+      {
+        "_id": "9e99baec-7945-4b86-a4cd-e8c94d966beb",
+        "name": "Users",
+        "containerId": "",
+        "created": "2022-09-04T13:55:46.637Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "f00b89a6-01e7-4e98-8f13-f29bbaf8c5d9",
+        "name": "Addresses",
+        "containerId": "",
+        "created": "2022-09-04T13:55:52.446Z",
+        "sortNum": 30000
+      },
+      {
+        "_id": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+        "name": "Admin",
+        "containerId": "",
+        "created": "2022-09-04T14:04:12.781Z",
+        "sortNum": 40000
+      },
+      {
+        "_id": "33667b5d-2e9c-495c-bd1b-cd6a373f30c3",
+        "name": "Products",
+        "containerId": "",
+        "created": "2022-09-29T20:17:21.130Z",
+        "sortNum": 50000
+      },
+      {
+        "_id": "087e0b20-5bff-4d10-9785-5f74caa453ee",
+        "name": "Files",
+        "containerId": "",
+        "created": "2022-10-02T15:18:29.650Z",
+        "sortNum": 60000
+      },
+      {
+        "_id": "0d617536-01ec-47b5-a05f-767927a8771d",
+        "name": "Customers",
+        "containerId": "",
+        "created": "2022-12-19T12:21:47.968Z",
+        "sortNum": 70000
+      }
+    ],
+    "settings": {
+      "headers": [],
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXRpemVJZCI6ImNmYjQyZmJjLWYzNGMtNDQ4Ni04MmRlLTNlMjMxNjUzMWUxZiIsImZpcnN0TmFtZSI6Ik1hcmluYSIsImxhc3ROYW1lIjoiU2lsdmEgRGlhcyIsImVtYWlsIjoibWFhcmluYXNkQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiKzU1MzE5NzE4MzA5MjMgICAiLCJjcmVhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJ1cGRhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJpYXQiOjE2NzE0NTg1NjAsImV4cCI6MTcwMjk5NDU2MH0.LgiW7iiIjdpkNDUKg5g4vwnMKP3lXfpg_fmtFj8rpso"
+      },
+      "tests": []
+    }
+  }
+]
