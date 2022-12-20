@@ -39,6 +39,5 @@
       "@Validators/*": ["src/App/common/validators/*"],
       "@Views/*": ["src/App/views/*"],
     }
-  },
-  "include": ["src/**/*.ts", "../../types/*.d.ts"]
+  }
 }

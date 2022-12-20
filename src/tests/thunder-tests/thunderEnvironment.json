@@ -10,15 +10,8 @@
       {
         "name": "HOST",
         "value": "http://localhost:3333"
-      },
-      {
-        "name": "email",
-        "value": "maarinasd@gmail.com"
-      },
-      {
-        "name": "password",
-        "value": "minhaSenha123"
       }
-    ]
+    ],
+    "envFile": "../../../development.env"
   }
 ]

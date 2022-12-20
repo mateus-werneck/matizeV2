@@ -8,14 +8,14 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-09-04T13:55:59.359Z",
-    "modified": "2022-09-05T11:40:28.856Z",
+    "modified": "2022-12-20T14:19:21.392Z",
     "headers": [],
     "params": [],
     "auth": {
       "type": "basic",
       "basic": {
-        "username": "{{email}}",
-        "password": "{{password}}"
+        "username": "{{CUSTOMER_EMAIL}}",
+        "password": "{{CUSTOMER_PASSWORD}}"
       }
     },
     "tests": []

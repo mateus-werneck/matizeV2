@@ -4,7 +4,7 @@ import { RouteModule } from '@Routes/route.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-const envFilePath: string = getEnvPath(`${__dirname}/Config/envs`);
+const envFilePath: string = getEnvPath(process.cwd());
 
 @Module({
   imports: [
