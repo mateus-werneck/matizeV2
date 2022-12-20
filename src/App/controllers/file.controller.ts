@@ -1,5 +1,7 @@
 import { Public } from '@Decorators/public.decorator';
+import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
 import { IpGuard } from '@Guards/authorization/ip-auth.guard';
+import { getFilePath } from '@Helpers/File';
 import { MatizeFileInterceptor } from '@Interceptors/matize.file.interceptor';
 import { FileView } from '@Interfaces/file/file.view';
 import { FileService } from '@Services/file/file.service';
@@ -16,8 +18,6 @@ import {
   UseInterceptors
 } from '@nestjs/common';
 import { Response } from 'express';
-import { AdminGuard } from '../common/guards/authorization/admin-auth.guard';
-import { getFilePath } from '../common/helpers/File';
 
 @Controller('files')
 export class FileController {
