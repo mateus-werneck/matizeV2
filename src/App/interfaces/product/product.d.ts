@@ -1,3 +1,5 @@
+import { ProductImage, ProductSize, ProductType } from "@prisma/client";
+
 export interface IProduct {
   matizeId: string;
   name: string;
@@ -10,4 +12,8 @@ export interface IProduct {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
+
+  images: ProductImage[];
+  size: ProductSize;
+  type: ProductType;
 }

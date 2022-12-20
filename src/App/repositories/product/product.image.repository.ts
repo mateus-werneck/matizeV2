@@ -2,7 +2,7 @@ import { PrismaRepository } from "@Repositories/standard/prisma.repository";
 import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class ProductImageRepository extends PrismaRepository{
+export class PrismaProductImageRepository extends PrismaRepository{
   
   getRepository(): string {
     return 'productImage'

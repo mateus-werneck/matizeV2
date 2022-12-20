@@ -8,11 +8,11 @@ export class ProductViewMapper extends ViewMapper {
     return [
       'matizeId',
       'name',
-      'internalName',
       'description',
-      'typeName',
-      'sizeName',
       'get_price',
+      'internalName',
+      'getSize',
+      'getType',
       'quantity'
     ];
   }
