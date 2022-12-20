@@ -4,7 +4,7 @@ import { FileEntity } from '@Entities/file.entity';
 import { isPublicFile, saveImageFile } from '@Helpers/File';
 import { FileView } from '@Interfaces/file/file.view';
 import { FileRepository } from '@Repositories/file/file.repository';
-import { PrismaProductImageRepository } from '@Repositories/product/prisma.product.image.repository';
+import { PrismaProductImageRepository } from '@Repositories/product/product.image.repository';
 import { Service } from '@Services/standard/service';
 import { Injectable, NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import mime from 'mime-types';
