@@ -101,7 +101,7 @@ model ProductSize {
 model ProductImage {
     matizeId        String @id @default(uuid()) @map("id_image")
     fileMatizeId    String @unique @map("fk_id_file_image")
-    productMatizeId String @unique @map("fk_id_product_image")
+    productMatizeId String @map("fk_id_product_image")
 
     file    File    @relation(fields: [fileMatizeId], references: [matizeId], onDelete: Cascade, onUpdate: Cascade)
     product Product @relation(fields: [productMatizeId], references: [matizeId], onDelete: Cascade, onUpdate: Cascade)
