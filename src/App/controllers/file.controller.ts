@@ -46,7 +46,7 @@ export class FileController {
     return new StreamableFile(fileStream);
   }
 
-  @Post('/image/:type/:matizeId')
+  @Post('image/:type/:matizeId')
   @UseGuards(AdminGuard, IpGuard)
   @UseInterceptors(MatizeFileInterceptor())
   async saveImage(

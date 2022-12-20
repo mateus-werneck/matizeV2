@@ -10,10 +10,11 @@ export class ProductViewMapper extends ViewMapper {
       'name',
       'description',
       'get_price',
+      'quantity',
       'internalName',
       'getSize',
       'getType',
-      'quantity'
+      'getImages'
     ];
   }
 }

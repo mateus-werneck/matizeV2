@@ -2,6 +2,8 @@ import { IProduct } from '@Interfaces/product/product';
 import { ProductSizeView } from '@Interfaces/product/product.size.view';
 import { ProductTypeView } from '@Interfaces/product/product.type.view';
 import { ProductViewMapper } from '@Views/product/product.view';
+import { ProductImageView } from '../interfaces/product/product.image.view';
+import { ProductImageEntity } from './product.image.entity';
 import { ProductSizeEntity } from './product.size.entity';
 import { ProductTypeEntity } from './product.type.entity';
 import { Entity } from './standard/entity';
@@ -25,6 +27,15 @@ export class ProductEntity extends Entity {
   get type(): ProductTypeView {
     const productType = new ProductTypeEntity(this.props.type)
     return productType.toView() as ProductTypeView
+  }
+
+  get images(): string[] {
+    const images = this.props.images.map((image) => {
+      const productImage = new ProductImageEntity(image)
+      const imageView = productImage.toView() as ProductImageView
+      return imageView.File.url
+    })
+    return images
   }
 
 
