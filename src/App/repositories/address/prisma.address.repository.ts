@@ -54,16 +54,21 @@ export class PrismaAddressRepository
 
   async update(params: {
     matizeId: string;
+    customerMatizeId: string;
     data: UpdateAddressDto;
   }): Promise<void> {
-    const { matizeId, data } = params;
+    const { matizeId, customerMatizeId, data } = params;
+    
     treatObject(data);
-
+    
     if (!isValidObject(data)) {
       return;
     }
 
-    await this.prisma.address.update({ where: { matizeId }, data });
+    await this.prisma.address.updateMany({
+      where: { matizeId, customerMatizeId },
+      data
+    });
   }
 
   async remove(matizeId: string): Promise<void> {

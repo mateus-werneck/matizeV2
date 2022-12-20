@@ -14,7 +14,7 @@ model User {
     firstName   String    @map("first_name_user") @db.VarChar(256)
     lastName    String    @map("last_name_user") @db.VarChar(256)
     email       String    @unique @map("email_user") @db.VarChar(256)
-    phoneNumber String    @map("phone_number_user") @db.Char(17)
+    phoneNumber String    @unique @map("phone_number_user") @db.Char(17)
     password    String    @map("password_user") @db.VarChar(256)
     createdAt   DateTime  @default(now()) @map("insertdate_user")
     updatedAt   DateTime  @default(now()) @updatedAt @map("updatedate_user")
@@ -31,7 +31,7 @@ model Customer {
     lastName    String    @map("last_name_customer") @db.VarChar(256)
     fullName    String    @map("full_name_customer") @db.VarChar(256)
     email       String    @unique @map("email_customer") @db.VarChar(256)
-    phoneNumber String    @map("phone_number_customer") @db.Char(17)
+    phoneNumber String    @unique @map("phone_number_customer") @db.Char(17)
     birthDate   DateTime  @map("birthdate_customer") @db.Date
     password    String    @map("password_customer") @db.VarChar(256)
     createdAt   DateTime  @default(now()) @map("insertdate_customer")

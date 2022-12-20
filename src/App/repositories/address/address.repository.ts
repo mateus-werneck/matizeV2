@@ -12,6 +12,7 @@ export abstract class AddressRepository implements IAddressRepository {
   }) => Promise<void>;
   abstract update: (params: {
     matizeId: string;
+    customerMatizeId: string;
     data: UpdateAddressDto;
   }) => Promise<void>;
   abstract remove: (matizeId: string) => Promise<void>;

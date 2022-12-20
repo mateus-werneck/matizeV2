@@ -39,11 +39,14 @@ export class AddressController {
 
   @Patch(':matizeId')
   async update(
+    @Request() req,
     @Param('matizeId') matizeId: string,
     @Body() data: UpdateAddressDto
   ): Promise<void> {
+    const customerMatizeId = req.user.matizeId
     await this.addressService.update({
       matizeId,
+      customerMatizeId,
       data
     });
   }
