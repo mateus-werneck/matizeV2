@@ -5,9 +5,6 @@ export class ProductSizeViewMapper extends ViewMapper {
   props: ProductSizeView;
 
   getPropsToView(): string[] {
-    return [
-      'internalName',
-      'friendlyName'
-    ];
+    return ['internalName', 'friendlyName'];
   }
 }

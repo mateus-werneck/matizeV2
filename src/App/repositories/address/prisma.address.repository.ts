@@ -58,9 +58,9 @@ export class PrismaAddressRepository
     data: UpdateAddressDto;
   }): Promise<void> {
     const { matizeId, customerMatizeId, data } = params;
-    
+
     treatObject(data);
-    
+
     if (!isValidObject(data)) {
       return;
     }

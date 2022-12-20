@@ -12,8 +12,7 @@ export class ProductImageEntity extends Entity {
   }
 
   get file(): FileView {
-    const fileEntity = new FileEntity(this.props.file)
-    return fileEntity.toView() as FileView
+    const fileEntity = new FileEntity(this.props.file);
+    return fileEntity.toView() as FileView;
   }
-  
 }

@@ -5,11 +5,6 @@ export class FileViewMapper extends ViewMapper {
   props: FileView;
 
   getPropsToView(): string[] {
-    return [
-      'matizeId',
-      'name',
-      'mimeType',
-      'get_url'
-    ];
+    return ['matizeId', 'name', 'mimeType', 'get_url'];
   }
 }

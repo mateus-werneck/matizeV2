@@ -26,7 +26,7 @@ export class PrismaFileRepository
 
   async findAll(): Promise<FileEntity[]> {
     const files = await this.prisma.file.findMany();
-    return this.treatList(files)
+    return this.treatList(files);
   }
 
   async create(data: CreateFileDto): Promise<FileEntity> {

@@ -5,9 +5,6 @@ export class ProductImageViewMapper extends ViewMapper {
   props: ProductSizeView;
 
   getPropsToView(): string[] {
-    return [
-      'matizeId',
-      'getFile',
-    ];
+    return ['matizeId', 'getFile'];
   }
 }

@@ -36,7 +36,7 @@ export class FileController {
     @Res({ passthrough: true }) res: Response
   ): Promise<StreamableFile> {
     const fileView = await this.fileService.findByMatizeId(matizeId);
-    const fileStream = getFilePath(fileView)
+    const fileStream = getFilePath(fileView);
 
     res.set({
       'Content-Type': fileView.mimeType,

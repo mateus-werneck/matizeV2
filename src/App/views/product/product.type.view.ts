@@ -5,9 +5,6 @@ export class ProductTypeViewMapper extends ViewMapper {
   props: ProductTypeView;
 
   getPropsToView(): string[] {
-    return [
-      'internalName',
-      'friendlyName'
-    ];
+    return ['internalName', 'friendlyName'];
   }
 }

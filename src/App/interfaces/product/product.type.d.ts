@@ -1,7 +1,7 @@
-import { Product } from "@prisma/client";
+import { Product } from '@prisma/client';
 
 export interface IProductType {
-    internalName: string;
-    friendlyName: string;
-    product: Product[];
+  internalName: string;
+  friendlyName: string;
+  product: Product[];
 }

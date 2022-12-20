@@ -30,7 +30,7 @@ export class AddressService extends Service {
 
   async update(params: {
     matizeId: string;
-    customerMatizeId: string,
+    customerMatizeId: string;
     data: UpdateAddressDto;
   }): Promise<void> {
     await this.addressRepository.update(params);

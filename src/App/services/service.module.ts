@@ -23,6 +23,13 @@ import { UserService } from './user/user.service';
     ProductService,
     UserService
   ],
-  exports: [AddressService, AuthService, CustomerService, FileService, ProductService, UserService]
+  exports: [
+    AddressService,
+    AuthService,
+    CustomerService,
+    FileService,
+    ProductService,
+    UserService
+  ]
 })
 export class ServiceModule {}

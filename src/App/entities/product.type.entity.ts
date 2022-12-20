@@ -8,5 +8,4 @@ export class ProductTypeEntity extends Entity {
   getViewClass(): typeof ProductTypeViewMapper {
     return ProductTypeViewMapper;
   }
-  
 }

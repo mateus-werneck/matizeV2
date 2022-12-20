@@ -16,27 +16,25 @@ export class ProductEntity extends Entity {
   }
 
   get price(): number {
-    return Number(this.props.price)
+    return Number(this.props.price);
   }
 
   get size(): ProductSizeView {
-    const productSize = new ProductSizeEntity(this.props.size)
-    return productSize.toView() as ProductSizeView
+    const productSize = new ProductSizeEntity(this.props.size);
+    return productSize.toView() as ProductSizeView;
   }
 
   get type(): ProductTypeView {
-    const productType = new ProductTypeEntity(this.props.type)
-    return productType.toView() as ProductTypeView
+    const productType = new ProductTypeEntity(this.props.type);
+    return productType.toView() as ProductTypeView;
   }
 
   get images(): string[] {
     const images = this.props.images.map((image) => {
-      const productImage = new ProductImageEntity(image)
-      const imageView = productImage.toView() as ProductImageView
-      return imageView.File.url
-    })
-    return images
+      const productImage = new ProductImageEntity(image);
+      const imageView = productImage.toView() as ProductImageView;
+      return imageView.File.url;
+    });
+    return images;
   }
-
-
 }

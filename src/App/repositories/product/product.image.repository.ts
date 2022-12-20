@@ -1,18 +1,19 @@
-import { PrismaRepository } from "@Repositories/standard/prisma.repository";
-import { Injectable } from "@nestjs/common";
+import { PrismaRepository } from '@Repositories/standard/prisma.repository';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class PrismaProductImageRepository extends PrismaRepository{
-  
+export class PrismaProductImageRepository extends PrismaRepository {
   getRepository(): string {
-    return 'productImage'
+    return 'productImage';
   }
 
   getEntity(): string {
-    return ''
+    return '';
   }
 
   async create(fileMatizeId: string, ownerMatizeId: string) {
-    return await this.prisma.productImage.create({ data: {fileMatizeId, productMatizeId: ownerMatizeId} });
+    return await this.prisma.productImage.create({
+      data: { fileMatizeId, productMatizeId: ownerMatizeId }
+    });
   }
 }

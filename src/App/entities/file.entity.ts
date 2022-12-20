@@ -10,7 +10,7 @@ export class FileEntity extends Entity {
   }
 
   get url(): string {
-    const systemUrl = process.env.SYSTEM_URL as string
-    return `${systemUrl}files/images/${this.props.matizeId}`
+    const systemUrl = process.env.SYSTEM_URL as string;
+    return `${systemUrl}files/images/${this.props.matizeId}`;
   }
 }

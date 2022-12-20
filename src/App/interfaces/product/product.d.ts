@@ -1,4 +1,4 @@
-import { ProductImage, ProductSize, ProductType } from "@prisma/client";
+import { ProductImage, ProductSize, ProductType } from '@prisma/client';
 
 export interface IProduct {
   matizeId: string;
