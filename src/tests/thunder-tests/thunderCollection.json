@@ -57,21 +57,7 @@
     ],
     "settings": {
       "headers": [],
-      "auth": {
-        "type": "bearer",
-        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXRpemVJZCI6ImNmYjQyZmJjLWYzNGMtNDQ4Ni04MmRlLTNlMjMxNjUzMWUxZiIsImZpcnN0TmFtZSI6Ik1hcmluYSIsImxhc3ROYW1lIjoiU2lsdmEgRGlhcyIsImVtYWlsIjoibWFhcmluYXNkQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiKzU1MzE5NzE4MzA5MjMgICAiLCJjcmVhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJ1cGRhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJpYXQiOjE2NzE1NDU3OTEsImV4cCI6MTcwMzA4MTc5MX0._1kBRFhcVHRKu_Jq2VeGsgBnCMzddf1Nfg1udxYZ_-4"
-      },
-      "tests": [],
-      "preReq": {
-        "runRequests": [
-          {
-            "reqId": "deddeca8-e3c9-49b8-9843-2a3ebec69d6b",
-            "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
-            "triggerCondition": "run-mins",
-            "triggerValue": "60"
-          }
-        ]
-      }
+      "tests": []
     }
   }
 ]
