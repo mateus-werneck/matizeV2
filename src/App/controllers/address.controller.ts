@@ -19,13 +19,6 @@ import {
 export class AddressController {
   constructor(private readonly addressService: AddressService) {}
 
-  @Get()
-  @UseGuards(AdminGuard, IpGuard)
-  async findAll(@Request() req): Promise<AddressView[]> {
-    const customerMatizeId = req.user.matizeId;
-    return this.addressService.findAll(customerMatizeId);
-  }
-
   @Get(':matizeId')
   async findOne(@Param('matizeId') matizeId: string): Promise<AddressView> {
     return await this.addressService.findByMatizeId(matizeId);
