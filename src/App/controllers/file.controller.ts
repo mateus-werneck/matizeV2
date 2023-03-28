@@ -1,13 +1,7 @@
 import { Public } from '@Decorators/public.decorator';
 import { getFilePath } from '@Helpers/File';
 import { FileService } from '@Services/file/file.service';
-import {
-  Controller,
-  Get,
-  Param,
-  Res,
-  StreamableFile
-} from '@nestjs/common';
+import { Controller, Get, Param, Res, StreamableFile } from '@nestjs/common';
 import { Response } from 'express';
 
 @Controller('files')

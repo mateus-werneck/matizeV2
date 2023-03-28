@@ -15,7 +15,7 @@ import { Module } from '@nestjs/common';
     CustomerController,
     FileController,
     LoginController,
-    ProductController,
+    ProductController
   ]
 })
 export class RouteModule {}

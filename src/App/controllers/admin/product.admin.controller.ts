@@ -2,19 +2,12 @@ import { AdminController } from '@Controllers/admin/standard/admin.controller';
 import { CreateProductDto } from '@Dtos/product/create-product.dto';
 import { UpdateProductDto } from '@Dtos/product/update-product.dto';
 import { ProductService } from '@Services/product/product.service';
-import {
-  Body,
-  Controller,
-  Delete,
-  Param,
-  Patch,
-  Post
-} from '@nestjs/common';
+import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
 
 @Controller('products')
 export class ProductAdminController extends AdminController {
   constructor(private readonly productService: ProductService) {
-    super()
+    super();
   }
 
   @Post()

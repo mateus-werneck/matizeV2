@@ -16,7 +16,7 @@ import {
 @Controller('users')
 export class UserController extends AdminController {
   constructor(private readonly userService: UserService) {
-    super()
+    super();
   }
 
   @Get()

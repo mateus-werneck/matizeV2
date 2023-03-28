@@ -1,11 +1,7 @@
 import { Public } from '@Decorators/public.decorator';
 import { ProductView } from '@Interfaces/product/product.view';
 import { ProductService } from '@Services/product/product.service';
-import {
-  Controller,
-  Get,
-  Param
-} from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 @Controller('products')
 export class ProductController {
