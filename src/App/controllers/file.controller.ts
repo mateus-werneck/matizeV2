@@ -1,33 +1,12 @@
 import { Public } from '@Decorators/public.decorator';
-import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
-import { IpGuard } from '@Guards/authorization/ip-auth.guard';
 import { getFilePath } from '@Helpers/File';
-import { MatizeFileInterceptor } from '@Interceptors/matize.file.interceptor';
-import { FileView } from '@Interfaces/file/file.view';
 import { FileService } from '@Services/file/file.service';
-import {
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Res,
-  StreamableFile,
-  UploadedFile,
-  UseGuards,
-  UseInterceptors
-} from '@nestjs/common';
+import { Controller, Get, Param, Res, StreamableFile } from '@nestjs/common';
 import { Response } from 'express';
 
 @Controller('files')
 export class FileController {
   constructor(private fileService: FileService) {}
-
-  @Get()
-  @UseGuards(AdminGuard, IpGuard)
-  async findAll(): Promise<FileView[]> {
-    return await this.fileService.findAll();
-  }
 
   @Get('images/:matizeId')
   @Public()
@@ -44,22 +23,5 @@ export class FileController {
     });
 
     return new StreamableFile(fileStream);
-  }
-
-  @Post('image/:type/:matizeId')
-  @UseGuards(AdminGuard, IpGuard)
-  @UseInterceptors(MatizeFileInterceptor())
-  async saveImage(
-    @Param('type') type: string,
-    @Param('matizeId') matizeId: string,
-    @UploadedFile() file: Express.Multer.File
-  ) {
-    await this.fileService.saveImage(file, type, matizeId);
-  }
-
-  @Delete(':matizeId')
-  @UseGuards(AdminGuard, IpGuard)
-  async remove(@Param('matizeId') matizeId: string): Promise<void> {
-    await this.fileService.remove(matizeId);
   }
 }
