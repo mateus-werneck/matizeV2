@@ -4,7 +4,6 @@ import { CustomerController } from '@Controllers/customer.controller';
 import { FileController } from '@Controllers/file.controller';
 import { LoginController } from '@Controllers/login.controller';
 import { ProductController } from '@Controllers/product.controller';
-import { UserController } from '@Controllers/users.controller';
 import { ServiceModule } from '@Services/service.module';
 import { Module } from '@nestjs/common';
 
@@ -17,7 +16,6 @@ import { Module } from '@nestjs/common';
     FileController,
     LoginController,
     ProductController,
-    UserController
   ]
 })
 export class RouteModule {}

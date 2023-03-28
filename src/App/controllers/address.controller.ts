@@ -1,7 +1,5 @@
 import { CreateAddressDto } from '@Dtos/address/create-address.dto';
 import { UpdateAddressDto } from '@Dtos/address/update-address.dto';
-import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
-import { IpGuard } from '@Guards/authorization/ip-auth.guard';
 import { AddressView } from '@Interfaces/address/address.view';
 import { AddressService } from '@Services/address/address.service';
 import {
@@ -11,8 +9,7 @@ import {
   Param,
   Patch,
   Post,
-  Request,
-  UseGuards
+  Request
 } from '@nestjs/common';
 
 @Controller('addresses')

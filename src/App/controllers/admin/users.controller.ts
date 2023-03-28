@@ -1,8 +1,8 @@
+import { AdminController } from '@Controllers/admin/standard/admin.controller';
 import { CreateUserDto } from '@Dtos/user/create-user.dto';
 import { UpdateUserDto } from '@Dtos/user/update-user.dto';
-import { AdminGuard } from '@Guards/authorization/admin-auth.guard';
-import { IpGuard } from '@Guards/authorization/ip-auth.guard';
 import { UserView } from '@Interfaces/user/user.view';
+import { UserService } from '@Services/user/user.service';
 import {
   Body,
   Controller,
@@ -10,15 +10,14 @@ import {
   Param,
   Patch,
   Post,
-  Request,
-  UseGuards
+  Request
 } from '@nestjs/common';
-import { UserService } from '@Services/user/user.service';
 
 @Controller('users')
-@UseGuards(AdminGuard, IpGuard)
-export class UserController {
-  constructor(private readonly userService: UserService) {}
+export class UserController extends AdminController {
+  constructor(private readonly userService: UserService) {
+    super()
+  }
 
   @Get()
   async findAll(): Promise<UserView[]> {
