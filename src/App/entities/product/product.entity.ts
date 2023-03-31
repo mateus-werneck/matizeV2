@@ -1,12 +1,12 @@
+import { ProductImageEntity } from '@Entities/product/product.image.entity';
+import { ProductSizeEntity } from '@Entities/product/product.size.entity';
+import { ProductTypeEntity } from '@Entities/product/product.type.entity';
+import { Entity } from '@Entities/standard/entity';
 import { IProduct } from '@Interfaces/product/product';
+import { ProductImageView } from '@Interfaces/product/product.image.view';
 import { ProductSizeView } from '@Interfaces/product/product.size.view';
 import { ProductTypeView } from '@Interfaces/product/product.type.view';
 import { ProductViewMapper } from '@Views/product/product.view';
-import { ProductImageView } from '../interfaces/product/product.image.view';
-import { ProductImageEntity } from './product.image.entity';
-import { ProductSizeEntity } from './product.size.entity';
-import { ProductTypeEntity } from './product.type.entity';
-import { Entity } from './standard/entity';
 
 export class ProductEntity extends Entity {
   props: IProduct;

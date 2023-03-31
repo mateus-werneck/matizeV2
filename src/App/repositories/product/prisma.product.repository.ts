@@ -1,6 +1,6 @@
 import { CreateProductDto } from '@Dtos/product/create-product.dto';
 import { UpdateProductDto } from '@Dtos/product/update-product.dto';
-import { ProductEntity } from '@Entities/product.entity';
+import { ProductEntity } from '@Entities/product/product.entity';
 import { isValidObject, treatObject } from '@Helpers/Object';
 import { ProductRepository } from '@Repositories/product/product.repository';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';

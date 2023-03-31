@@ -1,6 +1,6 @@
 import { CreateAddressDto } from '@Dtos/address/create-address.dto';
 import { UpdateAddressDto } from '@Dtos/address/update-address.dto';
-import { AddressEntity } from '@Entities/address.entity';
+import { AddressEntity } from '@Entities/address/address.entity';
 import { IAddressRepository } from '@Interfaces/address/address.repository';
 
 export abstract class AddressRepository implements IAddressRepository {

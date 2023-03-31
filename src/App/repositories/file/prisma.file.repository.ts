@@ -1,5 +1,5 @@
 import { CreateFileDto } from '@Dtos/file/create-file-dto';
-import { FileEntity } from '@Entities/file.entity';
+import { FileEntity } from '@Entities/file/file.entity';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
 import { FileRepository } from './file.repository';

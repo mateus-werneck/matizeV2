@@ -20,16 +20,17 @@ export abstract class ViewMapper {
     props.forEach((prop) => this.setViewProp(prop, entity));
   }
 
-  private hasCustomData(prop: string) {
-    return prop.search('get') != -1;
-  }
-
   private setViewProp(prop: string, entity: Entity) {
     if (this.hasCustomData(prop)) {
       return this.setCustomViewProp(prop, entity);
     }
     this.props[prop] = entity.props[prop];
   }
+
+  private hasCustomData(prop: string) {
+    return prop.search('get') != -1;
+  }
+
 
   private setCustomViewProp(prop: string, entity: Entity) {
     const customProp = prop.replace('get', '').replace('_', '');

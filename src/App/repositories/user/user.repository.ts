@@ -1,6 +1,6 @@
 import { CreateUserDto } from '@Dtos/user/create-user.dto';
 import { UpdateUserDto } from '@Dtos/user/update-user.dto';
-import { UserEntity } from '@Entities/user.entity';
+import { UserEntity } from '@Entities/user/user.entity';
 import { IUserRepository } from '@Interfaces/user/user.repository';
 
 export abstract class UserRepository implements IUserRepository {

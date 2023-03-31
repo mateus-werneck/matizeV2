@@ -1,6 +1,6 @@
 import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
-import { CustomerEntity } from '@Entities/customer.entity';
+import { CustomerEntity } from '@Entities/customer/customer.entity';
 import { UserNotFoundException } from '@Exceptions/user/userNotFoundException';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';

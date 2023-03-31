@@ -1,6 +1,6 @@
 import { CreateAddressDto } from '@Dtos/address/create-address.dto';
 import { UpdateAddressDto } from '@Dtos/address/update-address.dto';
-import { AddressEntity } from '@Entities/address.entity';
+import { AddressEntity } from '@Entities/address/address.entity';
 import { isValidObject, treatObject } from '@Helpers/Object';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
