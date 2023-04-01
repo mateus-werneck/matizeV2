@@ -7,6 +7,7 @@ export class MenuAdminViewMapper extends ViewMapper {
   getPropsToView(): string[] {
     return [
       'matizeId',
+      'parent',
       'name',
       'route',
       'icon'

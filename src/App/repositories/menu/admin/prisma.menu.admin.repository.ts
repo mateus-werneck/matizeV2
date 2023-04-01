@@ -21,13 +21,13 @@ export class PrismaMenuAdminRepository
 
   async findOne(matizeId: string): Promise<MenuAdminEntity> {
     const menu = this.prisma.menuAdminPanel.findFirstOrThrow({
-      where: { matizeId }
+      where: { matizeId },
     });
     return this.treatEntity(menu);
   }
 
   async findAll(): Promise<MenuAdminEntity[]> {
-      return await this.findAllMatize() as MenuAdminEntity[]
+      return await this.findAllMatize({}, {orderBy: {name: 'asc'}}) as MenuAdminEntity[]
   }
 
   async create(data: CreateMenuAdminDto): Promise<void> {

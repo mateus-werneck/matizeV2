@@ -1,4 +1,5 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
+import { isValidObject } from '@Helpers/Object';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -24,14 +25,14 @@ export abstract class PrismaRepository {
 
   async findAllMatize(
     where: object = {},
-    include: object = {}
+    customConditions: object = {}
   ): Promise<object[]> {
     const repository = this.getRepository();
-    const entities = this.prisma[repository].findMany({
-      where: { deletedAt: null, ...where },
-      include
-    });
 
+    let conditions = {where: { deletedAt: null, ...where }}
+    if (isValidObject(customConditions)) Object.assign(conditions, customConditions)
+
+    const entities = await this.prisma[repository].findMany(conditions);
     return this.treatList(entities);
   }
 
