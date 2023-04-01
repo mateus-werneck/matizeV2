@@ -1,8 +1,8 @@
+import { FileEntity } from '@Entities/file/file.entity';
+import { Entity } from '@Entities/standard/entity';
 import { FileView } from '@Interfaces/file/file.view';
 import { IProductImage } from '@Interfaces/product/product.image';
 import { ProductImageViewMapper } from '@Views/product/product.image.view';
-import { FileEntity } from './file.entity';
-import { Entity } from './standard/entity';
 
 export class ProductImageEntity extends Entity {
   props: IProductImage;

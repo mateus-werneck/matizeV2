@@ -1,5 +1,5 @@
 import { CreateFileDto } from '@Dtos/file/create-file-dto';
-import { FileEntity } from '@Entities/file.entity';
+import { FileEntity } from '@Entities/file/file.entity';
 import { IFileRepository } from '@Interfaces/file/file.repository';
 
 export abstract class FileRepository implements IFileRepository {

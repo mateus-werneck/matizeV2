@@ -1,6 +1,6 @@
 import { PrismaService } from '@Database/prisma/prisma.service';
 import { CreateFileDto } from '@Dtos/file/create-file-dto';
-import { FileEntity } from '@Entities/file.entity';
+import { FileEntity } from '@Entities/file/file.entity';
 import { isPublicFile, saveImageFile } from '@Helpers/File';
 import { FileView } from '@Interfaces/file/file.view';
 import { FileRepository } from '@Repositories/file/file.repository';

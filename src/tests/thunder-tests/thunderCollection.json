@@ -53,6 +53,20 @@
         "containerId": "",
         "created": "2022-12-19T12:21:47.968Z",
         "sortNum": 70000
+      },
+      {
+        "_id": "e78e7176-5c61-468d-aa8f-c08c616ef8d2",
+        "name": "Users",
+        "containerId": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+        "created": "2023-04-01T12:10:15.674Z",
+        "sortNum": 90000
+      },
+      {
+        "_id": "e0ac3b42-c332-4d4d-9834-46a3b7230ae0",
+        "name": "Dashboard",
+        "containerId": "1faad20e-ba53-447f-bbbd-7bb2bed84d00",
+        "created": "2023-04-01T12:10:26.780Z",
+        "sortNum": 100000
       }
     ],
     "settings": {

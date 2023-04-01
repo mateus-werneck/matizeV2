@@ -1,14 +1,15 @@
 import { BasicStrategy } from '@Auth/strategies/basic.strategy';
 import { DatabaseModule } from '@Database/database.module';
 import { PrismaService } from '@Database/prisma/prisma.service';
+import { AddressService } from '@Services/address/address.service';
+import { AuthService } from '@Services/auth/auth.service';
+import { CustomerService } from '@Services/customer/customer.service';
+import { FileService } from '@Services/file/file.service';
+import { MenuAdminService } from '@Services/menu/admin/menu.admin.service';
+import { ProductService } from '@Services/product/product.service';
+import { UserService } from '@Services/user/user.service';
 import { Module } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AddressService } from './address/address.service';
-import { AuthService } from './auth/auth.service';
-import { CustomerService } from './customer/customer.service';
-import { FileService } from './file/file.service';
-import { ProductService } from './product/product.service';
-import { UserService } from './user/user.service';
 
 @Module({
   imports: [DatabaseModule],
@@ -21,6 +22,7 @@ import { UserService } from './user/user.service';
     JwtService,
     PrismaService,
     ProductService,
+    MenuAdminService,
     UserService
   ],
   exports: [
@@ -29,6 +31,7 @@ import { UserService } from './user/user.service';
     CustomerService,
     FileService,
     ProductService,
+    MenuAdminService,
     UserService
   ]
 })

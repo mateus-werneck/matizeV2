@@ -1,4 +1,4 @@
-import { UserEntity } from '@Entities/user.entity';
+import { UserEntity } from '@Entities/user/user.entity';
 import { InvalidAuthException } from '@Exceptions/auth/invalidAuthException';
 import { decodeJwtSecret, jwtConstants } from '@Helpers/Jwt';
 import { hasValidPassword } from '@Helpers/Password';

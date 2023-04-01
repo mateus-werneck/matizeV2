@@ -1,4 +1,4 @@
-import { UserEntity } from '@Entities/user.entity';
+import { UserEntity } from '@Entities/user/user.entity';
 import { isValidObject } from '@Helpers/Object';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
