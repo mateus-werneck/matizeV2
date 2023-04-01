@@ -22,6 +22,19 @@ export abstract class PrismaRepository {
     return entities.map((entity) => this.treatEntity(entity));
   }
 
+  async findAllMatize(
+    where: object = {},
+    include: object = {}
+  ): Promise<object[]> {
+    const repository = this.getRepository();
+    const entities = this.prisma[repository].findMany({
+      where: { deletedAt: null, ...where },
+      include
+    });
+
+    return this.treatList(entities);
+  }
+
   async softDelete(matizeId: string) {
     const repository = this.getRepository();
     await this.prisma[repository].update({

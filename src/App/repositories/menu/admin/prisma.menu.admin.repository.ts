@@ -1,10 +1,10 @@
 import { CreateMenuAdminDto } from '@Dtos/menu/admin/create-menu-admin.dto';
 import { UpdateMenuAdminDto } from '@Dtos/menu/admin/update-menu-admin.dto';
-import { MenuAdminEntity } from '@Entities/menu/menu.admin.entity';
+import { MenuAdminEntity } from '@Entities/menu/admin/menu.admin.entity';
 import { isValidObject, treatObject } from '@Helpers/Object';
+import { MenuAdminRepository } from '@Repositories/menu/admin/menu.admin.repository';
 import { PrismaRepository } from '@Repositories/standard/prisma.repository';
 import { Injectable } from '@nestjs/common';
-import { MenuAdminRepository } from './menu.admin.repository';
 
 @Injectable()
 export class PrismaMenuAdminRepository
@@ -27,8 +27,7 @@ export class PrismaMenuAdminRepository
   }
 
   async findAll(): Promise<MenuAdminEntity[]> {
-    const menus = await this.prisma.menuAdminPanel.findMany();
-    return this.treatList(menus);
+      return await this.findAllMatize() as MenuAdminEntity[]
   }
 
   async create(data: CreateMenuAdminDto): Promise<void> {
@@ -51,7 +50,7 @@ export class PrismaMenuAdminRepository
       return;
     }
 
-    await this.prisma.menuAdminPanel.updateMany({
+    await this.prisma.menuAdminPanel.update({
       where: { matizeId },
       data
     });

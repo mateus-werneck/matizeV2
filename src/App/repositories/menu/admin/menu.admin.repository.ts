@@ -1,6 +1,6 @@
 import { CreateMenuAdminDto } from '@Dtos/menu/admin/create-menu-admin.dto';
 import { UpdateMenuAdminDto } from '@Dtos/menu/admin/update-menu-admin.dto';
-import { MenuAdminEntity } from '@Entities/menu/menu.admin.entity';
+import { MenuAdminEntity } from '@Entities/menu/admin/menu.admin.entity';
 import { IMenuAdminRepository } from '@Interfaces/menu/admin/menu.admin.repository';
 
 export abstract class MenuAdminRepository implements IMenuAdminRepository {

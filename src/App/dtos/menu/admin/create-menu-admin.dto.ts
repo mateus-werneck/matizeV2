@@ -1,7 +1,4 @@
-import {
-  IsNotEmpty,
-  IsString
-} from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateMenuAdminDto {
   @IsString()
@@ -15,4 +12,9 @@ export class CreateMenuAdminDto {
   @IsString()
   @IsNotEmpty()
   icon: string;
+
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  parent?: string;
 }

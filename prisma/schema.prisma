@@ -8,18 +8,6 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model MenuAdminPanel {
-    matizeId  String    @id @default(uuid()) @map("id_user")
-    name      String    @map("name_panel") @db.VarChar(256)
-    route     String    @map("route_panel") @db.VarChar(256)
-    icon      String    @map("icon_panel") @db.VarChar(256)
-    createdAt DateTime  @default(now()) @map("insertdate_panel")
-    updatedAt DateTime  @default(now()) @updatedAt @map("updatedate_panel")
-    deletedAt DateTime? @map("deleted_user")
-
-    @@map("menu_admin_panel")
-}
-
 model User {
     matizeId    String    @id @default(uuid()) @map("id_user")
     document    String    @unique @map("document_user") @db.Char(14)
@@ -132,4 +120,17 @@ model File {
     productImage ProductImage?
 
     @@map("files")
+}
+
+model MenuAdminPanel {
+    matizeId  String    @id @default(uuid()) @map("id_panel")
+    parent    String?   @map("parent_panel") @db.VarChar(256)
+    name      String    @map("name_panel") @db.VarChar(256)
+    route     String    @map("route_panel") @db.VarChar(256)
+    icon      String    @map("icon_panel") @db.VarChar(256)
+    createdAt DateTime  @default(now()) @map("insertdate_panel")
+    updatedAt DateTime  @default(now()) @updatedAt @map("updatedate_panel")
+    deletedAt DateTime? @map("deleted_panel")
+
+    @@map("menu_admin_panel")
 }
