@@ -161,7 +161,7 @@
     "method": "GET",
     "sortNum": 110000,
     "created": "2022-09-04T14:54:08.920Z",
-    "modified": "2022-09-04T14:57:01.439Z",
+    "modified": "2023-04-08T23:28:50.597Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -431,11 +431,11 @@
     "colId": "3cf7491a-521a-43f7-ac59-c2056eba6f02",
     "containerId": "e0ac3b42-c332-4d4d-9834-46a3b7230ae0",
     "name": "remove",
-    "url": "{{HOST}}/admin-dashboard/86cb5350-46fe-4f1c-a39d-a85e7304b160",
+    "url": "{{HOST}}/admin-dashboard/d75b9f42-f0d5-4b2a-848b-8c981a9255ac",
     "method": "DELETE",
     "sortNum": 240000,
     "created": "2023-04-01T12:27:50.423Z",
-    "modified": "2023-04-01T12:28:05.880Z",
+    "modified": "2023-04-01T13:22:24.661Z",
     "headers": [],
     "params": [],
     "tests": []

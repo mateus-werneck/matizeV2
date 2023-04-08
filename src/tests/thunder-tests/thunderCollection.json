@@ -70,8 +70,10 @@
       }
     ],
     "settings": {
-      "headers": [],
-      "tests": []
+      "auth": {
+        "type": "bearer",
+        "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXRpemVJZCI6ImNmYjQyZmJjLWYzNGMtNDQ4Ni04MmRlLTNlMjMxNjUzMWUxZiIsImZpcnN0TmFtZSI6Ik1hcmluYSIsImxhc3ROYW1lIjoiU2lsdmEgRGlhcyIsImVtYWlsIjoibWFhcmluYXNkQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiKzU1MzE5NzE4MzA5MjMgICAiLCJjcmVhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJ1cGRhdGVkQXQiOiIyMDIyLTEyLTE5VDEyOjI4OjIzLjkyMVoiLCJpYXQiOjE2ODA5OTY2MDYsImV4cCI6MTY4MDk5NjY5Mn0.autjJEgqNJ-2gAS2JrT6-adLA6JcA3aVaWEuuwFxPWo"
+      }
     }
   }
 ]
