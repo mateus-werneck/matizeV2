@@ -1,7 +1,7 @@
 import { Public } from '@Decorators/public.decorator';
 import { BasicAuthGuard } from '@Guards/authentication/basic-auth.guard';
 import { AuthService } from '@Services/auth/auth.service';
-import { Controller, Get, Request, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 
 @Controller()
 export class LoginController {
@@ -9,7 +9,7 @@ export class LoginController {
 
   @Public()
   @UseGuards(BasicAuthGuard)
-  @Get('auth/login')
+  @Post('auth/login')
   async login(@Request() req) {
     return await this.authService.login(req.user);
   }

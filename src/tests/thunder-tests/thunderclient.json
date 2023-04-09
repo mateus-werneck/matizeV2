@@ -5,10 +5,10 @@
     "containerId": "f77505b4-8b13-49cd-83bb-66dc3ae7b29c",
     "name": "login",
     "url": "{{HOST}}/auth/login",
-    "method": "GET",
+    "method": "POST",
     "sortNum": 10000,
     "created": "2022-09-04T13:55:59.359Z",
-    "modified": "2022-12-20T14:19:21.392Z",
+    "modified": "2023-04-09T00:06:10.363Z",
     "headers": [],
     "params": [],
     "auth": {
