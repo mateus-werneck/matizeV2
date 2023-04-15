@@ -16,4 +16,4 @@ EXPOSE 3333
 
 RUN npm run build
 
-CMD ["node", "dist/main"]
+CMD ["npm", "start:prod"]
