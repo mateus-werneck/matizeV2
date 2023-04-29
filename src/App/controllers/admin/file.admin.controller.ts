@@ -12,7 +12,7 @@ import {
   UseInterceptors
 } from '@nestjs/common';
 
-@Controller('files')
+@Controller('admin/files')
 export class FileAdminController extends AdminController {
   constructor(private fileService: FileService) {
     super();

@@ -9,7 +9,7 @@ export class LoginController {
 
   @Public()
   @UseGuards(BasicAuthGuard)
-  @Post('auth/login')
+  @Post('token')
   async login(@Request() req) {
     return await this.authService.login(req.user);
   }

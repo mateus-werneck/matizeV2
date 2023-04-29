@@ -13,7 +13,7 @@ import {
   Request
 } from '@nestjs/common';
 
-@Controller('users')
+@Controller('admin/users')
 export class UserController extends AdminController {
   constructor(private readonly userService: UserService) {
     super();
@@ -24,12 +24,12 @@ export class UserController extends AdminController {
     return this.userService.findAll();
   }
 
-  @Get(':email')
+  @Get('email/:email')
   async findByEmail(@Param('email') email: string): Promise<UserView> {
     return await this.userService.findByEmail(email);
   }
 
-  @Get(':matizeId')
+  @Get('id/:matizeId')
   async findOne(@Param('matizeId') matizeId: string): Promise<UserView> {
     return await this.userService.findByMatizeId(matizeId);
   }

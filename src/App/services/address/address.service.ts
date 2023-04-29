@@ -16,6 +16,12 @@ export class AddressService extends Service {
     return this.treatList(addresses) as AddressView[];
   }
 
+  async findAllRegardless(): Promise<AddressView[]> {
+    const addresses = await this.addressRepository.findAllRegardless();
+    return this.treatList(addresses) as AddressView[];
+  }
+
+
   async findByMatizeId(matizeId: string): Promise<AddressView> {
     const address = await this.addressRepository.findOne(matizeId);
     return this.treatItem(address) as AddressView;

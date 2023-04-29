@@ -6,6 +6,7 @@ import { IAddressRepository } from '@Interfaces/address/address.repository';
 export abstract class AddressRepository implements IAddressRepository {
   abstract findOne: (matizeId: string) => Promise<AddressEntity>;
   abstract findAll: (customerMatizeId?: string) => Promise<AddressEntity[]>;
+  abstract findAllRegardless: () => Promise<AddressEntity[]>;
   abstract create: (params: {
     customerMatizeId: string;
     data: CreateAddressDto;

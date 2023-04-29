@@ -34,6 +34,11 @@ export class PrismaAddressRepository
     return this.treatList(addresses);
   }
 
+  async findAllRegardless(): Promise<AddressEntity[]> {
+    const addresses = await this.prisma.address.findMany();
+    return this.treatList(addresses);
+  }
+
   async create(params: {
     customerMatizeId: string;
     data: CreateAddressDto;
