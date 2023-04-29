@@ -17,7 +17,7 @@ export class ProductService extends Service {
   }
 
   async findByMatizeId(matizeId: string): Promise<ProductView> {
-    const product = this.productRepository.findOne(matizeId);
+    const product = await this.productRepository.findOne(matizeId);
     return this.treatItem(product) as ProductView;
   }
 

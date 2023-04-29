@@ -17,7 +17,7 @@ export class MenuAdminService extends Service {
   }
 
   async findByMatizeId(matizeId: string): Promise<MenuAdminView> {
-    const product = this.menuAdminRepository.findOne(matizeId);
+    const product = await this.menuAdminRepository.findOne(matizeId);
     return this.treatItem(product) as MenuAdminView;
   }
 

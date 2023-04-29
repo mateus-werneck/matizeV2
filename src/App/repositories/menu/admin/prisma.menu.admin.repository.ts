@@ -20,7 +20,7 @@ export class PrismaMenuAdminRepository
   }
 
   async findOne(matizeId: string): Promise<MenuAdminEntity> {
-    const menu = this.prisma.menuAdminPanel.findFirstOrThrow({
+    const menu = await this.prisma.menuAdminPanel.findFirstOrThrow({
       where: { matizeId },
     });
     return this.treatEntity(menu);

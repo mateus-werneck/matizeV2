@@ -10,7 +10,7 @@ export class ProductController {
   @Get()
   @Public()
   async findAll(): Promise<ProductView[]> {
-    return this.productService.findAll();
+    return await this.productService.findAll();
   }
 
   @Get(':matizeId')

@@ -1,7 +1,6 @@
 import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
 import { CustomerView } from '@Interfaces/customer/customer.view';
-import { UserView } from '@Interfaces/user/user.view';
 import { CustomerRepository } from '@Repositories/customer/customer.repository';
 import { Service } from '@Services/standard/service';
 import { Injectable } from '@nestjs/common';
@@ -18,13 +17,13 @@ export class CustomerService extends Service {
   }
 
   async findByMatizeId(matizeId: string): Promise<CustomerView> {
-    const customer = this.customerRepository.findOne(matizeId);
+    const customer = await this.customerRepository.findOne(matizeId);
     return this.treatItem(customer) as CustomerView;
   }
 
-  async findByEmail(email: string): Promise<UserView> {
-    const user = this.customerRepository.findByEmail(email);
-    return this.treatItem(user) as UserView;
+  async findByEmail(email: string): Promise<CustomerView> {
+    const customer = await this.customerRepository.findByEmail(email);
+    return this.treatItem(customer) as CustomerView;
   }
 
   async create(customer: CreateCustomerDto): Promise<void> {

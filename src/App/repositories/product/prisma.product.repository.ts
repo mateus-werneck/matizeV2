@@ -20,7 +20,7 @@ export class PrismaProductRepository
   }
 
   async findOne(matizeId: string): Promise<ProductEntity> {
-    const product = this.prisma.product.findFirstOrThrow({
+    const product = await this.prisma.product.findFirstOrThrow({
       where: { matizeId },
       include: {
         type: true,
@@ -28,6 +28,7 @@ export class PrismaProductRepository
         images: { include: { file: true } }
       }
     });
+
     return this.treatEntity(product);
   }
 

@@ -17,12 +17,12 @@ export class UserService extends Service {
   }
 
   async findByMatizeId(matizeId: string): Promise<UserView> {
-    const user = this.userRepository.findOne(matizeId);
+    const user = await this.userRepository.findOne(matizeId);
     return this.treatItem(user) as UserView;
   }
 
   async findByEmail(email: string): Promise<UserView> {
-    const user = this.userRepository.findByEmail(email);
+    const user = await this.userRepository.findByEmail(email);
     return this.treatItem(user) as UserView;
   }
 

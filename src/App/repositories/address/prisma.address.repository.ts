@@ -21,7 +21,7 @@ export class PrismaAddressRepository
   }
 
   async findOne(matizeId: string): Promise<AddressEntity> {
-    const address = this.prisma.address.findFirstOrThrow({
+    const address = await this.prisma.address.findFirstOrThrow({
       where: { matizeId }
     });
     return this.treatEntity(address);

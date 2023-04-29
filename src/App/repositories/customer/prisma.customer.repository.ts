@@ -43,7 +43,8 @@ export class PrismaCustomerRepository
 
   async findByEmail(email: string): Promise<CustomerEntity> {
     const customer = await this.prisma.customer.findFirstOrThrow({
-      where: { email }
+      where: { email },
+      include: { addresses: true }
     });
 
     return this.treatEntity(customer);

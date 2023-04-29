@@ -1,3 +1,4 @@
+import { Public } from '@Decorators/public.decorator';
 import { CreateCustomerDto } from '@Dtos/customer/create-customer.dto';
 import { UpdateCustomerDto } from '@Dtos/customer/update-customer.dto';
 import { CustomerView } from '@Interfaces/customer/customer.view';
@@ -16,6 +17,12 @@ import {
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
 
+  @Public()
+  @Post()
+  async create(@Body() customer: CreateCustomerDto): Promise<void> {
+    return await this.customerService.create(customer);
+  }
+
   @Get(':email')
   async findByEmail(@Param('email') email: string): Promise<CustomerView> {
     return await this.customerService.findByEmail(email);
@@ -24,11 +31,6 @@ export class CustomerController {
   @Get(':matizeId')
   async findOne(@Param('matizeId') matizeId: string): Promise<CustomerView> {
     return await this.customerService.findByMatizeId(matizeId);
-  }
-
-  @Post()
-  async create(@Body() customer: CreateCustomerDto): Promise<void> {
-    return await this.customerService.create(customer);
   }
 
   @Patch()
