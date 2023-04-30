@@ -9,9 +9,10 @@ export class UserViewMapper extends ViewMapper {
       'matizeId',
       'firstName',
       'lastName',
-      'getFullname',
+      'getfullName',
       'email',
-      'phoneNumber'
+      'phoneNumber',
+      'getisAdmin',
     ];
   }
 }

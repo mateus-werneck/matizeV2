@@ -20,7 +20,7 @@ export class CustomerEntity extends Entity {
     return false;
   }
 
-  get addresses(): AddressView[] {
+  get Addresses(): AddressView[] {
     const addresses = this.props.addresses.map(
       (address) => new AddressEntity(address)
     );

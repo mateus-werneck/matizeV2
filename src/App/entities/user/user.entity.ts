@@ -15,10 +15,10 @@ export class UserEntity extends Entity {
   }
 
   get isAdmin(): boolean {
-    return treatStringToBoolean(this.props.isAdmin);
+    return this.props.isAdmin !== undefined && treatStringToBoolean(this.props.isAdmin);
   }
 
-  get fullname(): string {
+  get fullName(): string {
     return this.props.firstName + ' ' + this.props.lastName;
   }
 

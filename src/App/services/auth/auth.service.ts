@@ -75,7 +75,7 @@ export class AuthService extends Service {
           expiresIn: process.env.EXPIRES_IN
         }
       ),
-      token_type: 'Bearer',
+      token_type: 'Bearer'
     };
   }
 }
