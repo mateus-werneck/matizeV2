@@ -19,10 +19,9 @@ export class LoggingInterceptor implements NestInterceptor {
         const response = context.switchToHttp().getResponse();
         const request = getRequestToLog(context.switchToHttp().getRequest());
         request['statusCode'] = response.statusCode;
-        isValidObject(request) &&
-          this.logger.log(
-            '(' + (Date.now() - start) + ' ms) ' + JSON.stringify(request)
-          );
+        this.logger.log(
+          '(' + (Date.now() - start) + ' ms) ' + JSON.stringify(request)
+        );
       })
     );
   }
@@ -31,14 +30,19 @@ export class LoggingInterceptor implements NestInterceptor {
 function getRequestToLog(request: object) {
   const requestLog = {
     Route: request['url'],
-    Method: request['method'],
-    Body: request['body']
+    Method: request['method']
   };
+
+  if (isValidObject(request['body'])) {
+    requestLog['Body'] = request['body'];
+  }
+
   if (hasText(request['user'])) {
     requestLog['Bearer'] = {
       matizeId: request['user']['matizeId'],
       email: request['user']['email']
     };
   }
+
   return requestLog;
 }

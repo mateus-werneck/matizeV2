@@ -17,7 +17,6 @@ export class LoginController {
   @Get('user/profile')
   getProfile(@Request() req) {
     const user = req.user;
-    delete user['iat'];
     return user;
   }
 }

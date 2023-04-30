@@ -12,8 +12,6 @@ export class CustomerViewMapper extends ViewMapper {
       'fullName',
       'email',
       'phoneNumber',
-      'createdAt',
-      'updatedAt',
       'getAddresses'
     ];
   }
