@@ -13,7 +13,8 @@ export class AddressViewMapper extends ViewMapper {
       'street',
       'number',
       'district',
-      'additionalInfo'
+      'additionalInfo',
+      'customerMatizeId'
     ];
   }
 }
