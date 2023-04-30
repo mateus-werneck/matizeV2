@@ -9,7 +9,7 @@ export class UserViewMapper extends ViewMapper {
       'matizeId',
       'firstName',
       'lastName',
-      'fullName',
+      'getFullname',
       'email',
       'phoneNumber'
     ];

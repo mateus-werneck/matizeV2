@@ -15,15 +15,14 @@ export class BasicStrategy extends PassportStrategy(Strategy) {
 
   async validate(req: any) {
     const auth = req.headers['authorization'];
-    if (!hasText(auth)) {
-      throw new UnauthorizedException();
-    }
+    if (!hasText(auth)) throw new UnauthorizedException();
+
     const basicToken = base64decode(auth.replace('Basic ', ''));
     const [email, password] = basicToken.split(':');
     const user = await this.authService.validateUser(email, password);
-    if (!user) {
-      throw new UnauthorizedException();
-    }
+
+    if (!user) throw new UnauthorizedException();
+    
     req.user = user;
     return true;
   }

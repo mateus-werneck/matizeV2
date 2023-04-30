@@ -18,6 +18,10 @@ export class UserEntity extends Entity {
     return treatStringToBoolean(this.props.isAdmin);
   }
 
+  get fullname(): string {
+    return this.props.firstName + ' ' + this.props.lastName;
+  }
+
   getViewClass(): typeof UserViewMapper {
     return UserViewMapper;
   }
