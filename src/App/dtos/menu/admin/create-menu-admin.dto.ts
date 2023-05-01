@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateMenuAdminDto {
   @IsString()
@@ -12,6 +12,10 @@ export class CreateMenuAdminDto {
   @IsString()
   @IsNotEmpty()
   icon: string;
+
+  @IsInt()
+  @IsNotEmpty()
+  orderBy: number;
 
   @IsString()
   @IsNotEmpty()

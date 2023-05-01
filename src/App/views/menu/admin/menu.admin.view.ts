@@ -5,12 +5,6 @@ export class MenuAdminViewMapper extends ViewMapper {
   props: MenuAdminView;
 
   getPropsToView(): string[] {
-    return [
-      'matizeId',
-      'parent',
-      'name',
-      'route',
-      'icon'
-    ];
+    return ['matizeId', 'parent', 'name', 'route', 'icon', 'orderBy'];
   }
 }

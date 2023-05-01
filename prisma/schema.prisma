@@ -128,6 +128,7 @@ model MenuAdminPanel {
     name      String    @map("name_panel") @db.VarChar(256)
     route     String    @map("route_panel") @db.VarChar(256)
     icon      String    @map("icon_panel") @db.VarChar(256)
+    orderBy   Int       @map("order_panel") @db.Integer
     createdAt DateTime  @default(now()) @map("insertdate_panel")
     updatedAt DateTime  @default(now()) @updatedAt @map("updatedate_panel")
     deletedAt DateTime? @map("deleted_panel")

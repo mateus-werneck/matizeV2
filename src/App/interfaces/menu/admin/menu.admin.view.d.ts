@@ -7,4 +7,5 @@ export interface MenuAdminView extends View {
   name: string;
   route: string;
   icon: string;
+  orderBy: number;
 }
