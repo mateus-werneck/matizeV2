@@ -27,7 +27,7 @@ export class PrismaMenuAdminRepository
   }
 
   async findAll(): Promise<MenuAdminEntity[]> {
-      return await this.findAllMatize({}, {orderBy: {name: 'asc'}}) as MenuAdminEntity[]
+      return await this.findAllMatize({}, {orderBy: {orderBy: 'asc'}}) as MenuAdminEntity[]
   }
 
   async create(data: CreateMenuAdminDto): Promise<void> {
