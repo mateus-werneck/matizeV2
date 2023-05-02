@@ -24,5 +24,5 @@ export class UpdateMenuAdminDto {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  parent?: string;
+  parentId?: string;
 }

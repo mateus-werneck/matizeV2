@@ -124,14 +124,17 @@ model File {
 
 model MenuAdminPanel {
     matizeId  String    @id @default(uuid()) @map("id_panel")
-    parent    String?   @map("parent_panel") @db.VarChar(256)
     name      String    @map("name_panel") @db.VarChar(256)
     route     String    @map("route_panel") @db.VarChar(256)
-    icon      String    @map("icon_panel") @db.VarChar(256)
+    icon      String?   @map("icon_panel") @db.VarChar(256)
     orderBy   Int       @map("order_panel") @db.Integer
     createdAt DateTime  @default(now()) @map("insertdate_panel")
     updatedAt DateTime  @default(now()) @updatedAt @map("updatedate_panel")
     deletedAt DateTime? @map("deleted_panel")
+
+    parentId String?          @map("parent_panel")
+    parent   MenuAdminPanel?  @relation("SubMenu", fields: [parentId], references: [matizeId], onUpdate: Cascade, onDelete: Cascade)
+    children MenuAdminPanel[] @relation("SubMenu")
 
     @@map("menu_admin_panel")
 }

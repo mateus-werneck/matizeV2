@@ -10,7 +10,6 @@ export class CreateMenuAdminDto {
   route: string;
 
   @IsString()
-  @IsNotEmpty()
   icon: string;
 
   @IsInt()
@@ -20,5 +19,5 @@ export class CreateMenuAdminDto {
   @IsString()
   @IsNotEmpty()
   @IsOptional()
-  parent?: string;
+  parentId?: string;
 }

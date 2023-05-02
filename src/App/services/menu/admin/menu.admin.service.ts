@@ -12,17 +12,18 @@ export class MenuAdminService extends Service {
   }
 
   async findAll(): Promise<MenuAdminView[]> {
-    const products = await this.menuAdminRepository.findAll();
-    return this.treatList(products) as MenuAdminView[];
+    const menus = await this.menuAdminRepository.findAll();
+    console.log(menus)
+    return this.treatList(menus) as MenuAdminView[];
   }
 
   async findByMatizeId(matizeId: string): Promise<MenuAdminView> {
-    const product = await this.menuAdminRepository.findOne(matizeId);
-    return this.treatItem(product) as MenuAdminView;
+    const menu = await this.menuAdminRepository.findOne(matizeId);
+    return this.treatItem(menu) as MenuAdminView;
   }
 
-  async create(product: CreateMenuAdminDto): Promise<void> {
-    return await this.menuAdminRepository.create(product);
+  async create(menu: CreateMenuAdminDto): Promise<void> {
+    return await this.menuAdminRepository.create(menu);
   }
 
   async update(params: {

@@ -1,3 +1,5 @@
+import { MenuAdminPanel } from '@prisma/client';
+
 export interface IMenuAdmin {
   matizeId: string;
   name: string;
@@ -7,4 +9,5 @@ export interface IMenuAdmin {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
+  children: MenuAdminPanel[];
 }
