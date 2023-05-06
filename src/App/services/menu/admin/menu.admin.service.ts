@@ -13,7 +13,6 @@ export class MenuAdminService extends Service {
 
   async findAll(): Promise<MenuAdminView[]> {
     const menus = await this.menuAdminRepository.findAll();
-    console.log(menus)
     return this.treatList(menus) as MenuAdminView[];
   }
 
