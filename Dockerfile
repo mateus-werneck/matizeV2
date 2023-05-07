@@ -1,7 +1,7 @@
 ###################
 # BUILD FOR LOCAL DEVELOPMENT
 ###################
-FROM node:18-alpine AS development
+FROM node:lts-alpine AS development
 
 WORKDIR /usr/src/app
 
@@ -14,7 +14,7 @@ RUN yarn prisma generate
 
 COPY --chown=node:node . .
 
-EXPOSE 3333
+EXPOSE 9012
 
 USER node
 
