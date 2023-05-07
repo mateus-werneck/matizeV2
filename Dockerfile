@@ -14,6 +14,8 @@ RUN yarn prisma generate
 
 COPY --chown=node:node . .
 
+EXPOSE 3333
+
 USER node
 
 ###################

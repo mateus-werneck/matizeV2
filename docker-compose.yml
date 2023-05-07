@@ -1,17 +1,31 @@
 services:
+  matize-db:
+    image: postgres
+    container_name: matize-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=matize
+      - POSTGRES_PASSWORD=845d47df5c3a993de0517f315ca8341a
+      - POSTGRES_DB=matizedb
+    expose:
+      - '5432'
+    ports:
+      - 9000:5432
+    volumes:
+      - pgdata:/data/postgres
+    command: -p 5432
   matizev2:
-    build: 
+    build:
       dockerfile: Dockerfile
       context: ./
-      target: development 
+      target: development
     restart: always
-    container_name: matizeapi
+    container_name: matizev2
     env_file:
       - .env
       - development.env
     ports:
       - 3333:3333
-      - 9229:9229
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
