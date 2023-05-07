@@ -1,8 +1,14 @@
 services:
-  matizeapi:
-    build: ./
+  matizev2:
+    build: 
+      dockerfile: Dockerfile
+      context: ./
+      target: development 
     restart: always
     container_name: matizeapi
+    env_file:
+      - .env
+      - development.env
     ports:
       - 3333:3333
       - 9229:9229
