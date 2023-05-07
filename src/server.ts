@@ -15,6 +15,6 @@ async function bootstrap() {
     new ClassSerializerInterceptor(app.get(Reflector)),
     new LoggingInterceptor(logger)
   );
-  await app.listen(3333);
+  await app.listen(80);
 }
 bootstrap();
